@@ -1,0 +1,291 @@
+zabbix_export:
+  version: '6.2'
+  date: '2022-09-27T04:06:08Z'
+  template_groups:
+    -
+      uuid: 5e84df1ec51c4c289261fce0ec370d2a
+      name: BLE
+    -
+      uuid: 96c58cf98c1245a286eb343c0ef68a8b
+      name: Bluetooth
+    -
+      uuid: 3cd3577d2e5e4a239c5b2e90070034c8
+      name: 'Environmental monitoring'
+  templates:
+    -
+      uuid: 29ffe9380f10497e9e6f722ece809661
+      template: RuuviTag
+      name: RuuviTag
+      groups:
+        -
+          name: BLE
+        -
+          name: Bluetooth
+        -
+          name: 'Environmental monitoring'
+      items:
+        -
+          uuid: 3bdd48b4aec0430a846b6bdcde7b8cfb
+          name: 'Ruuvi master item'
+          type: ZABBIX_ACTIVE
+          key: 'log[/tmp/ruuvitag.txt]'
+          delay: 5s
+          history: 7d
+          trends: '0'
+          value_type: LOG
+        -
+          uuid: 88479cd0d3304057a6aaa1134c4c1906
+          name: 'RuuviTag acceleration X'
+          type: DEPENDENT
+          key: ruuvitag.accelerationx
+          delay: '0'
+          value_type: FLOAT
+          units: G
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Acceleration X: ([-]*[0-9]+\.[0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: 'Acceleration X'
+        -
+          uuid: cef36269ba004b91adf7faa1dbbace7f
+          name: 'RuuviTag acceleration Y'
+          type: DEPENDENT
+          key: ruuvitag.accelerationy
+          delay: '0'
+          value_type: FLOAT
+          units: G
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Y: ([-]*[0-9]+\.[0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: 'Acceleration Y'
+        -
+          uuid: 36f9fd30319b44d3b338b3894dd3fac5
+          name: 'RuuviTag acceleration Z'
+          type: DEPENDENT
+          key: ruuvitag.accelerationz
+          delay: '0'
+          value_type: FLOAT
+          units: G
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Z: ([-]*[0-9]+\.[0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: 'Acceleration Z'
+        -
+          uuid: cf2a584345524c95b9c00a1f99358aa4
+          name: 'RuuviTag battery voltage'
+          type: DEPENDENT
+          key: ruuvitag.batteryvoltage
+          delay: '0'
+          units: mV
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Battery voltage: ([0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: Battery
+        -
+          uuid: 3f768ab6fba5443da85276a2c0c1376d
+          name: 'RuuviTag humidity'
+          type: DEPENDENT
+          key: ruuvitag.humidity
+          delay: '0'
+          value_type: FLOAT
+          units: '%'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Humidity: ([0-9]+\.[0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: humidity
+        -
+          uuid: 1d22ecabc0134ed38adf7fb6acf7c17e
+          name: 'RuuviTag move counter'
+          type: DEPENDENT
+          key: ruuvitag.moves
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Moves: ([0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: 'move counter'
+        -
+          uuid: 42f6f55dbdbd4bd3ae7defa98195f993
+          name: 'RuuviTag pressure'
+          type: DEPENDENT
+          key: ruuvitag.pressure
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Pressure: ([0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: Pressure
+        -
+          uuid: c8406c85e1034c58bddfa1e952da0134
+          name: 'RuuviTag sequence number'
+          type: DEPENDENT
+          key: ruuvitag.seqno
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Seqno: ([0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: 'Sequence number'
+        -
+          uuid: 664068830cd64a39912ff8a7313ed68c
+          name: 'RuuviTag temperature'
+          type: DEPENDENT
+          key: ruuvitag.temperature
+          delay: '0'
+          value_type: FLOAT
+          units: C
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*Temperature: ([0-9]+\.[0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: temperature
+          triggers:
+            -
+              uuid: 223f7f85b9ab4a76aa440ad65268e8ea
+              expression: last(/RuuviTag/ruuvitag.temperature)>22.5
+              name: 'Lily is probably in her bed'
+              status: DISABLED
+              priority: INFO
+              tags:
+                -
+                  tag: Application
+                  value: Lily
+                -
+                  tag: Component
+                  value: Temperature
+            -
+              uuid: b36fe6dbf87647f7bfb6e76ad5c2c4d0
+              expression: last(/RuuviTag/ruuvitag.temperature)<22.5
+              name: 'Lily is probably NOT in her bed'
+              status: DISABLED
+              priority: INFO
+              tags:
+                -
+                  tag: Application
+                  value: Lily
+                -
+                  tag: Component
+                  value: Temperature
+        -
+          uuid: 7720d018bbcf42209acaba883585f8ca
+          name: 'RuuviTag TxPower'
+          type: DEPENDENT
+          key: ruuvitag.txpower
+          delay: '0'
+          units: dBm
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '.*TxPower: ([0-9]+).*'
+                - \1
+          master_item:
+            key: 'log[/tmp/ruuvitag.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Environmental monitoring'
+            -
+              tag: Component
+              value: 'Transmit power'
+      tags:
+        -
+          tag: Appliance
+          value: RuuviTag
+        -
+          tag: Application
+          value: 'Environmental monitoring'
