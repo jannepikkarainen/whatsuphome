@@ -1,0 +1,78 @@
+zabbix_export:
+  version: '6.2'
+  date: '2022-10-05T05:14:14Z'
+  template_groups:
+    -
+      uuid: 368e3f479c44419bab5382fd5dde2530
+      name: 'Air conditioner'
+  templates:
+    -
+      uuid: 4f551c1d0b444c79b633b33cadd065a2
+      template: 'Airconditioner with Broadlink chip and MQTT'
+      name: 'Airconditioner with Broadlink chip and MQTT'
+      groups:
+        -
+          name: 'Air conditioner'
+      items:
+        -
+          uuid: 8999a77d46a94194a8c367d1dc909c2c
+          name: 'Airconditioner ambient temperature'
+          type: ZABBIX_ACTIVE
+          key: 'mqtt.get["","/aircon/a043b089d3bb/ambient_temp/value"]'
+          delay: '0'
+          units: C
+          tags:
+            -
+              tag: Appliance
+              value: 'Air conditioner'
+        -
+          uuid: 520a5188625b42a88cfd4f9baea136fa
+          name: 'Airconditioner fan speed'
+          type: ZABBIX_ACTIVE
+          key: 'mqtt.get["","/aircon/a043b089d3bb/fanspeed/value"]'
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: Appliance
+              value: 'Air conditioner'
+        -
+          uuid: f9fe39ee1b27403ea2df486c087bcdfe
+          name: 'Airconditioner mode'
+          type: ZABBIX_ACTIVE
+          key: 'mqtt.get["","/aircon/a043b089d3bb/mode/value"]'
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: Appliance
+              value: 'Air conditioner'
+        -
+          uuid: 71e6ce4264d64e0e8daf3cca9845836d
+          name: 'Airconditioner power'
+          type: ZABBIX_ACTIVE
+          key: 'mqtt.get["","/aircon/a043b089d3bb/power/value"]'
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: Appliance
+              value: 'Air conditioner'
+        -
+          uuid: 06e5dae718484d30b10a85324ddcd707
+          name: 'Airconditioner target temperature'
+          type: ZABBIX_ACTIVE
+          key: 'mqtt.get["","/aircon/a043b089d3bb/temp/value"]'
+          delay: '0'
+          units: C
+          tags:
+            -
+              tag: Appliance
+              value: 'Air conditioner'
+      tags:
+        -
+          tag: Appliance
+          value: 'Air conditioner'

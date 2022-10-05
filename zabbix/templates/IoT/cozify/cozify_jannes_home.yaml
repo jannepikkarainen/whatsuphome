@@ -1,0 +1,3175 @@
+zabbix_export:
+  version: '6.2'
+  date: '2022-10-05T05:10:38Z'
+  template_groups:
+    -
+      uuid: 463d230f850a4e209a60469e4c7d343d
+      name: Cozify
+    -
+      uuid: 07da7c5dba7f4acf995a1f0fedaefd7a
+      name: 'Home automation'
+  templates:
+    -
+      uuid: 0a180189a9ea4f5e97fab42b7417b719
+      template: Cozify
+      name: Cozify
+      groups:
+        -
+          name: Cozify
+        -
+          name: 'Home automation'
+      items:
+        -
+          uuid: a0d1409f0bd94b6e960c46ffe401223e
+          name: 'Sonos speaker play status'
+          type: DEPENDENT
+          key: audio.playstatus
+          delay: '0'
+          valuemap:
+            name: 'Sonos speaker'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Sonos speaker: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - PLAYING
+                - '1'
+            -
+              type: STR_REPLACE
+              parameters:
+                - STOPPED
+                - '0'
+            -
+              type: STR_REPLACE
+              parameters:
+                - PAUSED_PLAYBACK
+                - '2'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_sonos.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 552cf5fff0e44e8886097dc25cfca004
+          name: 'Garage side door battery'
+          type: DEPENDENT
+          key: battery.garagesidedoor
+          delay: '0'
+          value_type: FLOAT
+          units: V
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage side door: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_battery.txt]'
+          tags:
+            -
+              tag: category
+              value: battery
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: 5081357b0cbd44dd9cc4364d4b1259f3
+          name: 'Hallway motion sensory battery'
+          type: DEPENDENT
+          key: battery.hallway
+          delay: '0'
+          value_type: FLOAT
+          units: V
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Hallway motion sensor: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_battery.txt]'
+          tags:
+            -
+              tag: category
+              value: battery
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: 1fb8a6098459479aa79e4d138e00a920
+          name: 'Home office motion sensor battery'
+          type: DEPENDENT
+          key: battery.homeoffice
+          delay: '0'
+          value_type: FLOAT
+          units: V
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Home office motion: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_battery.txt]'
+          tags:
+            -
+              tag: category
+              value: battery
+            -
+              tag: Room
+              value: 'Home office'
+        -
+          uuid: 76968f2a43b94aba9f71999c8ecdf375
+          name: 'Housekeeping room door sensor battery'
+          type: DEPENDENT
+          key: battery.housekeepingroomdoor
+          delay: '0'
+          value_type: FLOAT
+          units: V
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Housekeeping room entrance: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_battery.txt]'
+          tags:
+            -
+              tag: category
+              value: battery
+            -
+              tag: Room
+              value: 'Housekeeping room'
+        -
+          uuid: dec7579f42044336b1b5707281a86f2a
+          name: 'Main entrance door sensor battery'
+          type: DEPENDENT
+          key: battery.mainentrancedoor
+          delay: '0'
+          value_type: FLOAT
+          units: V
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Main entrance door: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_battery.txt]'
+          tags:
+            -
+              tag: category
+              value: battery
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: 99213a20a44d42848e331d00e7c17127
+          name: 'Woodshed door sensor battery'
+          type: DEPENDENT
+          key: battery.woodsheddoor
+          delay: '0'
+          value_type: FLOAT
+          units: V
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Woodshed door sensor: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_battery.txt]'
+          tags:
+            -
+              tag: category
+              value: battery
+            -
+              tag: Room
+              value: Woodshed
+        -
+          uuid: dc4b3823178a4a2aa1f0887651b632b2
+          name: 'Bedroom ceiling light firmware status'
+          type: DEPENDENT
+          key: firmware.bedroomceilinglight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom ceiling light: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: e1242955084941d6858d8a10ee539959
+          name: 'Bedroom light strip firmware status'
+          type: DEPENDENT
+          key: firmware.bedroomlightstrip
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom light strip: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 375f98a1d6ae4dbbaa64caa0795c4562
+          name: 'Dining area light 1 firmware status'
+          type: DEPENDENT
+          key: firmware.diningarealight1
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Dining area: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 992d52a8b6cc4bb882c6cb113e6d3f37
+          name: 'Dining area light 2 firmware status'
+          type: DEPENDENT
+          key: firmware.diningarealight2
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Dining area 2: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 6c91d7ef56f34bf28368e35965547079
+          name: 'Fireplace seasonal light firmware status'
+          type: DEPENDENT
+          key: firmware.fireplaceseasonal
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Fireplace seasonal light: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: e4722ff11f1e4dd3a9ca1fcf91ee1b84
+          name: 'Floor light next to sofa firmware status'
+          type: DEPENDENT
+          key: firmware.floorlightnexttosofa
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Floor light next to sofa: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: dccc93ade44f4b74bb199da2be78cdff
+          name: 'Front door camera firmware status'
+          type: DEPENDENT
+          key: firmware.frontdoorcamera
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Front door camera: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: camera
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: f0cbeb5f2c8643b385c3c84c7f9b1b63
+          name: 'Garage side door firmware status'
+          type: DEPENDENT
+          key: firmware.garagesidedoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage side door: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: 'door sensor'
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 5d94dffe52dd4f038f2e32d95dfe4e6c
+          name: 'Guest room ceiling light firmware status'
+          type: DEPENDENT
+          key: firmware.guestroomceilinglight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Guest room ceiling light: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: c32b094046ed4274a2f4388f5c368caa
+          name: 'Hallway motion sensor firmware status'
+          type: DEPENDENT
+          key: firmware.hallwaymotionsensor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Guest room ceiling light: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: 'motion sensor'
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: ac37693a73694b5ab1a111bd32c8b698
+          name: 'Home office motion firmware status'
+          type: DEPENDENT
+          key: firmware.homeofficemotion
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Home office motion: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: 'motion sensor'
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: a1a7f4af702f4ed8983dd93bdc66b0dd
+          name: 'Housekeeping room door firmware status'
+          type: DEPENDENT
+          key: firmware.housekeepingroomdoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Housekeeping room entrance: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: 'door sensor'
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 42964f7dfdfd4c0e873cacb800b978ab
+          name: 'Hue Ambient light firmware status'
+          type: DEPENDENT
+          key: firmware.hueambientlight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Hue ambient light: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: a93ef34329c9464883292707726f6904
+          name: 'Living room light strip firmware status'
+          type: DEPENDENT
+          key: firmware.livingroomlightstrip
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Living room light strip: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: cf92826ffe6a4ebf9f67e936db289537
+          name: 'Main entrance door firmware status'
+          type: DEPENDENT
+          key: firmware.mainentrancedoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Main entrance door: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: 'door sensor'
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 12c0b30d8fb643ac9f13cad7faa5e4c4
+          name: 'Office light firmware status'
+          type: DEPENDENT
+          key: firmware.offcelight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Office light: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: 18c62c1461cb4f71a9cfabe26ceb699c
+          name: 'TV stand light firmware status'
+          type: DEPENDENT
+          key: firmware.tvstandlight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'TV stand light: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: bd50dbc392d54c26bdc1595378a4ec03
+          name: 'Woodshed door firmware status'
+          type: DEPENDENT
+          key: firmware.woodsheddoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Woodshed door sensor: (.*)'
+                - \1
+            -
+              type: STR_REPLACE
+              parameters:
+                - OK
+                - '1'
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          tags:
+            -
+              tag: category
+              value: 'door sensor'
+            -
+              tag: component
+              value: firmware
+        -
+          uuid: a098c98e996b43c0bdd63fd4822efb8a
+          name: 'Forecast: Hallway lux amount in one hour'
+          type: CALCULATED
+          key: forecast.lux.hallway
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.hallway,1h,30m)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: Hallway
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 9d2d4e1b8b2049148ad20cefd6ceaa85
+          name: 'Forecast: Hallway lux amount in one day'
+          type: CALCULATED
+          key: forecast.lux.hallway1d
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.hallway,1h:now-1d,1d)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: Hallway
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: bc7b9b2eb2a94d85b0a3c81ee3c29a4c
+          name: 'Forecast: Hallway lux amount in one week'
+          type: CALCULATED
+          key: forecast.lux.hallway1w
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.hallway,1h:now-1d,1w)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: Hallway
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 427f2f1ea6b14aeabc779d3965084e81
+          name: 'Forecast: Hallway lux amount in six hours'
+          type: CALCULATED
+          key: forecast.lux.hallway6h
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.hallway,1h:now-1d,6h)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: Hallway
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: b480f521443e4db0beaf3e4a6aa2ff3e
+          name: 'Forecast: Home office  lux amount in one hour'
+          type: CALCULATED
+          key: forecast.lux.homeoffice
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.homeoffice,1h,30m)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: 'Home office'
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 6e54443c60c34c83b77076d664a5107a
+          name: 'Forecast: Home office lux amount in one day'
+          type: CALCULATED
+          key: forecast.lux.homeoffice1d
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.homeoffice,1h:now-1d,1d)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: 'Home office'
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 0e70ba11a6a04b5ca63352c834f338c4
+          name: 'Forecast: Home office lux amount in one week'
+          type: CALCULATED
+          key: forecast.lux.homeoffice1w
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.homeoffice,1h:now-1d,1w)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: 'Home office'
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: d7c2b8d49e2c477f93661181d8cf3d57
+          name: 'Forecast: Home office lux amount in six hours'
+          type: CALCULATED
+          key: forecast.lux.homeoffice6h
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.homeoffice,1h:now-1d,6h)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: 'Home office'
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 07190672cf5d43bd95231f8d9be58387
+          name: 'Forecast: Home office lux amount in 12 hours'
+          type: CALCULATED
+          key: forecast.lux.homeoffice12h
+          trends: '0'
+          value_type: FLOAT
+          units: lux
+          params: 'forecast(//lux.homeoffice,1h:now-1d,12h)'
+          tags:
+            -
+              tag: Application
+              value: Lux
+            -
+              tag: Room
+              value: 'Home office'
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 9cfc7dde90de47e4b634dbd0bceaf675
+          name: 'Forecast: Outdoor temperature in one hour'
+          type: CALCULATED
+          key: forecast.temp.outdoor
+          trends: '0'
+          value_type: FLOAT
+          units: C
+          params: 'forecast(//temp.outdoor,1h,30m)'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Outdoors
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 9f99cfe9c77747c4bc98dd18925516de
+          name: 'Forecast: Outdoor temperature in one week'
+          type: CALCULATED
+          key: forecast.temp.outdoor1w
+          trends: '0'
+          value_type: FLOAT
+          units: C
+          params: 'forecast(//temp.outdoor,1w:now-1d,7d)'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Outdoors
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 36e5b642721a4dbb9a3cf97d01e5c73d
+          name: 'Forecast: Outdoor temperature in 6 hours'
+          type: CALCULATED
+          key: forecast.temp.outdoor6h
+          trends: '0'
+          value_type: FLOAT
+          units: C
+          params: 'forecast(//temp.outdoor,1w:now-1d,6h)'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Outdoors
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 4274a8954c40446fadd85b9b0c875bde
+          name: 'Forecast: Outdoor temperature in 12 hours'
+          type: CALCULATED
+          key: forecast.temp.outdoor12h
+          trends: '0'
+          value_type: FLOAT
+          units: C
+          params: 'forecast(//temp.outdoor,1w:now-1d,12h,"linear","avg")'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Outdoors
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: b6c754fc48fd4ab69bda3ff398db2b4b
+          name: 'Forecast: Outdoor temperature in 24 hours'
+          type: CALCULATED
+          key: forecast.temp.outdoor24h
+          trends: '0'
+          value_type: FLOAT
+          units: C
+          params: 'forecast(//temp.outdoor,1w:now-1d,24h)'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Outdoors
+            -
+              tag: Type
+              value: Forecast
+        -
+          uuid: 64a2a1a9f236476b826df795b7f49551
+          name: 'Garage smoke alarm active'
+          type: DEPENDENT
+          key: garagesmokealarm.alarm
+          delay: '0'
+          valuemap:
+            name: 'Smoke alarm'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage smoke alarm: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_smoke.txt]'
+          tags:
+            -
+              tag: category
+              value: 'smoke alarm'
+            -
+              tag: component
+              value: alarm
+            -
+              tag: room
+              value: garage
+        -
+          uuid: 4c4ed903a99c4020aa8adb0a3ee357ca
+          name: 'Bedroom humidity'
+          type: DEPENDENT
+          key: humidity.bedroom
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom temp & humidity: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_humidities.txt]'
+          tags:
+            -
+              tag: Room
+              value: Bedroom
+        -
+          uuid: 526a20f7340a4479b2cd093d7d857ab5
+          name: 'Garage humidity'
+          type: DEPENDENT
+          key: humidity.garage
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage temperature: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_humidities.txt]'
+          tags:
+            -
+              tag: Room
+              value: Garage
+        -
+          uuid: 489e16e2f8bd46119cae1133b6704a78
+          name: 'Living room humidity'
+          type: DEPENDENT
+          key: humidity.livingroom
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Living room temperature: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_humidities.txt]'
+          tags:
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 0fbb79b8947f46dfb760beab4282a1d4
+          name: 'Kitchen smoke alarm active'
+          type: DEPENDENT
+          key: kitchensmokealarm.alarm
+          delay: '0'
+          valuemap:
+            name: 'Smoke alarm'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Kitchen smoke alarm: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_smoke.txt]'
+          tags:
+            -
+              tag: category
+              value: 'smoke alarm'
+            -
+              tag: component
+              value: alarm
+            -
+              tag: room
+              value: kitchen
+        -
+          uuid: 072a3327646148069ba0f42fd59482aa
+          name: 'Nexa remote control last button'
+          type: DEPENDENT
+          key: lastbutton.nexarc
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Nexa Remote Control Button: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_nexa_rc.txt]'
+          tags:
+            -
+              tag: category
+              value: 'remote control'
+            -
+              tag: component
+              value: 'button pressed'
+        -
+          uuid: aef458eed1f84d67ada09c6e2fa96b23
+          name: 'Zabbix remote control last button'
+          type: DEPENDENT
+          key: lastbutton.zabbixrc
+          delay: '0'
+          valuemap:
+            name: 'Zabbix remote control'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Zabbix remote Button: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_nexa_rc.txt]'
+          tags:
+            -
+              tag: category
+              value: 'remote control'
+            -
+              tag: component
+              value: 'button pressed'
+          triggers:
+            -
+              uuid: 8acda07468a24369941594511d11a2bb
+              expression: 'changecount(/Cozify/lastbutton.zabbixrc,5m)<>0'
+              name: 'Zabbix remote button pressed'
+              priority: INFO
+              manual_close: 'YES'
+              tags:
+                -
+                  tag: Application
+                  value: 'instant message'
+                -
+                  tag: Application
+                  value: 'remote control'
+        -
+          uuid: ba20fc32c97742e98552d4220fa4cd96
+          name: 'Facial cream last applied'
+          type: DEPENDENT
+          key: lastseen.facialcream
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Woodshed door sensor: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lastchange.txt]'
+          tags:
+            -
+              tag: Application
+              value: 'Facial cream'
+            -
+              tag: component
+              value: 'last seen'
+            -
+              tag: Room
+              value: 'Housekeeping room'
+        -
+          uuid: 31e47a300ddb46a6aca5f8a7c9cbaa79
+          name: 'Nexa remote control last seen'
+          type: DEPENDENT
+          key: lastseen.nexarc
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Nexa Remote Control Last seen: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_nexa_rc.txt]'
+          tags:
+            -
+              tag: category
+              value: 'remote control'
+            -
+              tag: component
+              value: 'last seen'
+        -
+          uuid: 6161661bb71e41e18bca4f7f74f790ff
+          name: 'Zabbix remote control last seen'
+          type: DEPENDENT
+          key: lastseen.zabbixrc
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Zabbix remote Last seen: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_nexa_rc.txt]'
+          tags:
+            -
+              tag: category
+              value: 'remote control'
+            -
+              tag: component
+              value: 'last seen'
+        -
+          uuid: e9142ae12eee469dad60fbc08408e111
+          name: 'Hallway lux amount'
+          type: DEPENDENT
+          key: lux.hallway
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Hallway motion sensor: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lux.txt]'
+          tags:
+            -
+              tag: component
+              value: lux
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: ec09c4af464640de9ce3c039475f1458
+          name: 'Home office lux amount'
+          type: DEPENDENT
+          key: lux.homeoffice
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Home office motion: (.*)'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lux.txt]'
+          tags:
+            -
+              tag: component
+              value: lux
+            -
+              tag: Room
+              value: 'Home office'
+        -
+          uuid: 59752433cd21423e94bc73f8331cd949
+          name: 'Bedroom ceiling light power status'
+          type: DEPENDENT
+          key: powerstatus.bedroomceilinglight
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: Bedroom
+        -
+          uuid: 451bb6f62f154102822ef308d3a82976
+          name: 'Bedroom light strip power status'
+          type: DEPENDENT
+          key: powerstatus.bedroomlightstrip
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom light strip: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: Bedroom
+        -
+          uuid: e6f1ea9d95db482395888ca77d7ee9b9
+          name: 'Dining area light 1 power status'
+          type: DEPENDENT
+          key: powerstatus.diningarealight1
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Dining area: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Dining room'
+        -
+          uuid: 7bd64ce8daca42f3ab47d478da098d4f
+          name: 'Dining area light 2 power status'
+          type: DEPENDENT
+          key: powerstatus.diningarealight2
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Dining area 2: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Dining room'
+        -
+          uuid: 89d5074b46fd4ad7bbbf993660e1d864
+          name: 'Fireplace seasonal light power status'
+          type: DEPENDENT
+          key: powerstatus.fireplaceseasonal
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Fireplace seasonal light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 4b522bffde5046b9ba671e836b1f0196
+          name: 'Floor light next to sofa power status'
+          type: DEPENDENT
+          key: powerstatus.floorlightnexttosofa
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Floor light next to sofa: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 3364c989582b4ff28e37adc3caf8014f
+          name: 'Garage heater side door power status'
+          type: DEPENDENT
+          key: powerstatus.garageheatersidedoor
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage heater side door: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_power.txt]'
+          tags:
+            -
+              tag: category
+              value: camera
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: Terrace
+        -
+          uuid: 3c78387baac1438292ea4e48b557af7c
+          name: 'Garage heater slide door power status'
+          type: DEPENDENT
+          key: powerstatus.garageheaterslidedoor
+          delay: '0'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage heater slide door: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_power.txt]'
+          tags:
+            -
+              tag: category
+              value: camera
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: Terrace
+        -
+          uuid: 45eebb942c0240168245936c070fe27b
+          name: 'Guest room ceiling light power status'
+          type: DEPENDENT
+          key: powerstatus.guestroomceilinglight
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Guest room ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Guest room'
+        -
+          uuid: b98b2b0deaed4b0a83a1c82b6a27e4b7
+          name: 'Hue ambient light power status'
+          type: DEPENDENT
+          key: powerstatus.hueambientlight
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Hue ambient light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: d5c1e9a2fd5544e2a62f177171505646
+          name: 'Living room ceiling light power status'
+          type: DEPENDENT
+          key: powerstatus.livingroomceiling
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Living room ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: bbc751f9d3fc45aa838fb6dfa449cfe6
+          name: 'Office light power status'
+          type: DEPENDENT
+          key: powerstatus.officelight
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Office light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Home office'
+        -
+          uuid: c2b6b5efc9c04fe9b0897586e2022dd9
+          name: 'TV stand light power status'
+          type: DEPENDENT
+          key: powerstatus.tvstandlight
+          delay: '0'
+          valuemap:
+            name: 'Philips Hue'
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'TV stand light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 4b89c1350bd24355873e08047574599f
+          name: 'Video camera power status'
+          type: DEPENDENT
+          key: powerstatus.videocamera
+          delay: '0'
+          valuemap:
+            name: Camera
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Video camera power: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_power.txt]'
+          tags:
+            -
+              tag: category
+              value: camera
+            -
+              tag: component
+              value: power
+            -
+              tag: Room
+              value: Terrace
+        -
+          uuid: 4b1c99239ced4d81ab81dacc5631c331
+          name: 'Freezer temperature sensor reachability'
+          type: DEPENDENT
+          key: reachability.bedroom
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom temperature: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Bedroom
+        -
+          uuid: 4641195976e64839844c1f2532dc5697
+          name: 'Bedroom ceiling light reachability'
+          type: DEPENDENT
+          key: reachability.bedroomceilinglight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Bedroom
+        -
+          uuid: f00a7ec801da442abb7e6a373d7f568d
+          name: 'Bedroom light strip reachability'
+          type: DEPENDENT
+          key: reachability.bedroomlightstrip
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Bedroom
+        -
+          uuid: 6d1cef55f6f147d482c5be7baf368a37
+          name: 'Dining area light 1 reachability'
+          type: DEPENDENT
+          key: reachability.diningarealight1
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Dining area: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Dining room'
+        -
+          uuid: c7a14e451b3e445e898ffe2b8bc6f4e4
+          name: 'Dining area light 2 reachability'
+          type: DEPENDENT
+          key: reachability.diningarealight2
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Dining area 2: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Dining room'
+        -
+          uuid: 8986bbbc4c6a4199bf9560cb76dcbc1a
+          name: 'Doorbell reachability'
+          type: DEPENDENT
+          key: reachability.doorbell
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Doorbell: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: 37b8e48662fe41109d0f79c14e0a4d39
+          name: 'Doorbell button reachability'
+          type: DEPENDENT
+          key: reachability.doorbellbutton
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Doorbell button: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: b44c6011c3c443c78e0b66a14bd7248e
+          name: 'Fireplace seasonal light reachability'
+          type: DEPENDENT
+          key: reachability.fireplaceseasonallight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Fireplace seasonal light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: fb298c8d6b7e4597b72182290b229d74
+          name: 'Freezer temperature sensor reachability'
+          type: DEPENDENT
+          key: reachability.freezer
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Freezer temperature: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: Appliance
+              value: Freezer
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Kitchen
+        -
+          uuid: 1f4fd662e0164ec7973ff28573d91c09
+          name: 'Fridge temperature sensor reachability'
+          type: DEPENDENT
+          key: reachability.fridge
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Fridge temperature: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: Appliance
+              value: Freezer
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Kitchen
+        -
+          uuid: f72738a22b18444a8dbf6149b213e990
+          name: 'Front door camera reachability'
+          type: DEPENDENT
+          key: reachability.frontdoorcamera
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Front door camera: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Outdoors
+        -
+          uuid: 5c2d675efec748e69a59ce80ac1f079d
+          name: 'Front door motion sensor reachability'
+          type: DEPENDENT
+          key: reachability.frontdoormotionsensor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Front door motion sensor: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: 'motion sensor'
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Outdoors
+        -
+          uuid: 6e19483528f34a07b1ec65a975cfdb40
+          name: 'Garage heater side door reachability'
+          type: DEPENDENT
+          key: reachability.garageheatersidedoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage heater side door: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Garage
+        -
+          uuid: 562074adc23d4797a0ab62e785d88ebc
+          name: 'Garage heater slide door reachability'
+          type: DEPENDENT
+          key: reachability.garageheaterslidedoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage heater slide door: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Garage
+        -
+          uuid: 37b4c5b37b554986af5cf516febd73da
+          name: 'Garage side door reachability'
+          type: DEPENDENT
+          key: reachability.garagesidedoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage side door: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Garage
+        -
+          uuid: a5100ed14ad84f9ca49608e664b85e2d
+          name: 'Garage smoke alarm reachability'
+          type: DEPENDENT
+          key: reachability.garagesmokealarm
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage smoke alarm: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: 'smoke alarm'
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: garage
+        -
+          uuid: 4002c9e6475e4159a8046514f54e59ed
+          name: 'Garage temperature reachability'
+          type: DEPENDENT
+          key: reachability.garagetemperature
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage temperature: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Garage
+        -
+          uuid: 881e3915e1f34e3b8ba0a0c1424105ba
+          name: 'Garbage shed motion sensor reachability'
+          type: DEPENDENT
+          key: reachability.garbageshedmotionsensor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garbage shed motion sensor: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: 'motion sensor'
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Outdoors
+        -
+          uuid: c6128b9911754d3a9193f02eb1d53641
+          name: 'Guest room ceiling light reachability'
+          type: DEPENDENT
+          key: reachability.guestroomceilinglight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Guest room ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+        -
+          uuid: 6581d74ec8034d4c9748e35d63387b4c
+          name: 'Hallway motion sensor'
+          type: DEPENDENT
+          key: reachability.hallwaymotionsensor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Hallway motion sensor: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: 'motion sensor'
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: 347a4f8d7b9a470f9101c7f449e7c750
+          name: 'Home office motion sensor reachability'
+          type: DEPENDENT
+          key: reachability.homeofficemotionsensor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Home office motion: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: 'motion sensor'
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Home office'
+        -
+          uuid: 8fd1e3bf5b1f4e228b74483891937c28
+          name: 'Housekeeping room entrance reachability'
+          type: DEPENDENT
+          key: reachability.housekeepingroomentrance
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Housekeeping room entrance: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Housekeeping room'
+        -
+          uuid: 348b434290bd488fa21e41a81e7f0c7b
+          name: 'Hue ambient light reachability'
+          type: DEPENDENT
+          key: reachability.hueambientlight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Hue ambient light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 0bc7d757d4ef45d4b1bff1b42da11cba
+          name: 'Kitchen smoke alarm reachability'
+          type: DEPENDENT
+          key: reachability.kitchensmokealarm
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Kitchen smoke alarm: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: 'smoke alarm'
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: kitchen
+        -
+          uuid: e8ecaa7a6e4347e8aa1341595978767b
+          name: 'Living room ceiling light reachability'
+          type: DEPENDENT
+          key: reachability.livingroomceilinglight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Living room ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: cdcae0778383486f84341f6bf643cc00
+          name: 'Living room floor light reachability'
+          type: DEPENDENT
+          key: reachability.livingroomfloorlight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Living room floor light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: e42f0de34f964039986ddca8bf9f2cfb
+          name: 'Living room temperature reachability'
+          type: DEPENDENT
+          key: reachability.livingroomtemperature
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Living room temperature: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 62e0e50e33de4935b3d77c896df7f11a
+          name: 'Main entrance door sensor reachability'
+          type: DEPENDENT
+          key: reachability.mainentrancedoorsensor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Main entrance door: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: 6a8e61bce7764edca63e35009d22750f
+          name: 'Nexa remote control reachability'
+          type: DEPENDENT
+          key: reachability.nexaremotecontrol
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Nexa Remote Control: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+        -
+          uuid: cf2431f907af4a9f9d99eca8e49c64dd
+          name: 'Office light reachability'
+          type: DEPENDENT
+          key: reachability.officelight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Office light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+        -
+          uuid: 82d7061b6e1e42b3ad5bdc7dc0417dbf
+          name: 'Outdoor temperature reachability'
+          type: DEPENDENT
+          key: reachability.outdoortemperature
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Outdoor temperature: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Outdoors
+        -
+          uuid: f281b1f8751348cd8dc6e65c72578e8f
+          name: 'Power outlet behind sofa reachability'
+          type: DEPENDENT
+          key: reachability.poweroutletbehindsofa
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Power outlet behind sofa: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 8dbb4981b0904e93b5b4a9144f369cb0
+          name: 'Side terrace door motion sensor reachability'
+          type: DEPENDENT
+          key: reachability.sideterracedoormotionsensor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom ceiling light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: 'motion sensor'
+            -
+              tag: component
+              value: reachability
+        -
+          uuid: f30b69ecf741426c99d955d0ff36ee4d
+          name: 'Sonos speaker reachability'
+          type: DEPENDENT
+          key: reachability.sonosspeaker
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Sonos speaker: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+        -
+          uuid: d691b9ae50c3464c870d083dc6900eac
+          name: 'Toilet smart outlet reachability'
+          type: DEPENDENT
+          key: reachability.toiletsmartoutlet
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Toilet smart outlet: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+        -
+          uuid: 43b8ede924304df8803484365212a48b
+          name: 'TV stand light reachability'
+          type: DEPENDENT
+          key: reachability.tvstandlight
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'TV stand light: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: category
+              value: light
+            -
+              tag: component
+              value: reachability
+        -
+          uuid: f45658b672c543e3b9a9d6382f461127
+          name: 'Video camera power reachability'
+          type: DEPENDENT
+          key: reachability.videocamerapower
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Video camera power: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Outdoors
+        -
+          uuid: 90e6fd85d9784c1b8350cc24c33d2545
+          name: 'Woodshed door sensor reachability'
+          type: DEPENDENT
+          key: reachability.woodsheddoor
+          delay: '0'
+          valuemap:
+            name: Reachability
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Woodshed door sensor: (.*)'
+                - \1
+            -
+              type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          tags:
+            -
+              tag: component
+              value: reachability
+            -
+              tag: Room
+              value: Outdoors
+        -
+          uuid: 38d7a1b473d24758b6c10935c6e06949
+          name: 'Bedroom temperature'
+          type: DEPENDENT
+          key: temp.bedroom
+          delay: '0'
+          trends: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Bedroom temperature: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Bedroom
+        -
+          uuid: cb7e7bbeb51143e5b03663252a5de0c9
+          name: 'Freezer temperature'
+          type: DEPENDENT
+          key: temp.freezer
+          delay: '0'
+          trends: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Freezer temperature: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Appliance
+              value: Freezer
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Kitchen
+        -
+          uuid: 5e7f6bf3fed64174abb681fbe1550d1f
+          name: 'Fridge temperature'
+          type: DEPENDENT
+          key: temp.fridge
+          delay: '0'
+          trends: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Fridge temperature: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Appliance
+              value: Freezer
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Kitchen
+        -
+          uuid: a2aefe5a9d874029ab4b5af2c6c37e94
+          name: Garage
+          type: DEPENDENT
+          key: temp.garage
+          delay: '0'
+          trends: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Garage temperature: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Room
+              value: Garage
+        -
+          uuid: 2bb27384db1c4b62af84876124ecefd2
+          name: Hallway
+          type: DEPENDENT
+          key: temp.hallway
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Hallway motion sensor: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Room
+              value: Hallway
+        -
+          uuid: ebd61c23f78e43649e479188c99919bd
+          name: 'Home office'
+          type: DEPENDENT
+          key: temp.homeoffice
+          delay: '0'
+          trends: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Home office motion: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Room
+              value: 'Home office'
+        -
+          uuid: 183c078bf6bf46988ba55f3f6340c020
+          name: 'Housekeeping room temperature'
+          type: DEPENDENT
+          key: temp.housekeeping
+          delay: '0'
+          trends: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Housekeeping room temperature: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Application
+              value: Temperature
+            -
+              tag: Room
+              value: Housekeeping
+        -
+          uuid: 7dc917ac77f34c67b03add7d575140f9
+          name: 'Living room temperature'
+          type: DEPENDENT
+          key: temp.livingroom
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Living room temperature: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Room
+              value: 'Living room'
+        -
+          uuid: 3e2fdcfbfc1e42cc9e9cc5523628747a
+          name: Outdoor
+          type: DEPENDENT
+          key: temp.outdoor
+          delay: '0'
+          trends: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Outdoor temperature: (.*)C'
+                - \1
+          master_item:
+            key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          tags:
+            -
+              tag: Room
+              value: Outdoors
+        -
+          uuid: a0e6104d740a445c96f5ea6627c1c7cf
+          name: 'Battery voltage master item'
+          key: 'vfs.file.contents[/tmp/cozify_battery.txt]'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: 6d0358c6894548c0a6275a7d55c9322b
+          name: 'Firmware upgrades master item'
+          key: 'vfs.file.contents[/tmp/cozify_firmware.txt]'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: fd8f492a15a14ad18942d84be15d1436
+          name: 'Humidities master item'
+          key: 'vfs.file.contents[/tmp/cozify_humidities.txt]'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: a1d56b071e3e4e49b2206a654952cb5f
+          name: 'Last change master item'
+          key: 'vfs.file.contents[/tmp/cozify_lastchange.txt]'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: component
+              value: 'last change'
+        -
+          uuid: 0fcddcadcaa14baebefbd791ecf9e1e5
+          name: 'Last seen master item'
+          key: 'vfs.file.contents[/tmp/cozify_lastseen.txt]'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: Appliance
+              value: Cozify
+            -
+              tag: component
+              value: 'last seen'
+        -
+          uuid: 402aa219bdb44236ab776b02c1b8328c
+          name: 'Lights status master item'
+          key: 'vfs.file.contents[/tmp/cozify_lights.txt]'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: 8698f323c1b04782adb4066e49adc79c
+          name: 'lux master item'
+          key: 'vfs.file.contents[/tmp/cozify_lux.txt]'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: 8fdcb5a8b17946e3b0eb223a908ace00
+          name: 'Nexa remote control master item'
+          key: 'vfs.file.contents[/tmp/cozify_nexa_rc.txt]'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: Appliance
+              value: 'Nexa remote control'
+        -
+          uuid: 8e920bf2d234455a8f79e037ab0336fe
+          name: 'Power status masterr item'
+          key: 'vfs.file.contents[/tmp/cozify_power.txt]'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: 48c11a65e02e4a62b80b29b6f6825818
+          name: 'Reachability master item'
+          key: 'vfs.file.contents[/tmp/cozify_reachability.txt]'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: 4b86b13d662f4df3888505ac19a798f9
+          name: 'Smoke alarm master item'
+          key: 'vfs.file.contents[/tmp/cozify_smoke.txt]'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: category
+              value: 'smoke alarm'
+        -
+          uuid: 977dd5f1bacc4f7f95e7a76fc49a9749
+          name: 'Sonos speaker master item'
+          key: 'vfs.file.contents[/tmp/cozify_sonos.txt]'
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: category
+              value: 'Sonos speaker'
+        -
+          uuid: f73826b7051441c6835440280b92f75c
+          name: 'Sonos speaker current song'
+          key: 'vfs.file.contents[/tmp/cozify_sonos_track.txt]'
+          trends: '0'
+          value_type: LOG
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Sonos speaker: (.*)'
+                - \1
+            -
+              type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          tags:
+            -
+              tag: Appliance
+              value: 'Sonos speaker'
+            -
+              tag: Application
+              value: 'Current track'
+        -
+          uuid: 3c5927d7cd3041d0b77aa8bbbaf3f164
+          name: 'Sonos volume'
+          key: 'vfs.file.contents[/tmp/cozify_sonos_volume.txt]'
+          delay: 5m
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - 'Sonos speaker: (.*)'
+                - \1
+          tags:
+            -
+              tag: Appliance
+              value: 'Sonos speaker'
+            -
+              tag: Application
+              value: Volume
+        -
+          uuid: a111b159b919422881e93ed4298bb4b0
+          name: 'Temperatures master item'
+          key: 'vfs.file.contents[/tmp/cozify_temperatures.txt]'
+          trends: '0'
+          value_type: TEXT
+      tags:
+        -
+          tag: Appliance
+          value: Cozify
+      valuemaps:
+        -
+          uuid: 6f0bc253bea5413aacee4813247d7797
+          name: Camera
+          mappings:
+            -
+              value: '0'
+              newvalue: ⚫️
+            -
+              value: '1'
+              newvalue: 🎥
+        -
+          uuid: 597038b746c84cdabcf938f6a53bc389
+          name: 'Philips Hue'
+          mappings:
+            -
+              value: '0'
+              newvalue: ⚫️
+            -
+              value: '1'
+              newvalue: 💡
+        -
+          uuid: 05263b2d124842fca5e9f029006fe7ee
+          name: Reachability
+          mappings:
+            -
+              value: '0'
+              newvalue: ❌
+            -
+              value: '1'
+              newvalue: ✅
+        -
+          uuid: 3a3ea822847a45429f71a977174fa4a8
+          name: 'Smart socket'
+          mappings:
+            -
+              value: '0'
+              newvalue: ⚫️
+            -
+              value: '1'
+              newvalue: 🔌
+        -
+          uuid: 1a57f551049742abae52bdfe660b4a9c
+          name: 'Smoke alarm'
+          mappings:
+            -
+              value: '0'
+              newvalue: 💤
+            -
+              newvalue: 🔥
+        -
+          uuid: adf5a6145b134088b97cf4c2b69fc5ad
+          name: 'Sonos speaker'
+          mappings:
+            -
+              value: '0'
+              newvalue: ⏹
+            -
+              value: '1'
+              newvalue: ▶️
+            -
+              value: '2'
+              newvalue: ⏸
+        -
+          uuid: 532badbf54e84197ab140929d62a6250
+          name: 'Zabbix remote control'
+          mappings:
+            -
+              value: '1'
+              newvalue: 'Food is ready'
+            -
+              value: '2'
+              newvalue: 'Help! Out of beer!'
+            -
+              value: '3'
+              newvalue: 'Sauna is ready'
+            -
+              value: '4'
+              newvalue: 'New grocery store shopping list'
+            -
+              value: '5'
+              newvalue: 'BRB, going to grocery store'
+            -
+              value: '6'
+              newvalue: 'Update Zabbix server'
+            -
+              value: '7'
+              newvalue: 'Reserved for future use'
+            -
+              value: '8'
+              newvalue: 'Reserver for future use'
