@@ -31,5 +31,6 @@ So far my blog series has 24 parts, out of which the first three are outright bo
 22. Use Zabbix as a countdown timer: https://www.linkedin.com/pulse/whats-up-home-part-22-janne-pikkarainen/
 23. BA-NA-NA! (Zabbix Summit 2022 visitors/viewers can relate to this): https://www.linkedin.com/pulse/whats-up-home-part-23-janne-pikkarainen/
 24. Monitor Finland's total real-time electricity consumption: https://www.linkedin.com/pulse/whats-up-home-part-24-janne-pikkarainen/
+25. Don't forget to monitor your backups: https://www.linkedin.com/pulse/whats-up-home-part-25-janne-pikkarainen/
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
