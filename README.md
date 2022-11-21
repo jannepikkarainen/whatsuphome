@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 27 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even.
+So far my blog series has 28 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even.
 
 1. Introduction: https://www.linkedin.com/pulse/whats-up-home-janne-pikkarainen/ 
 2. Adding Grafana to the mix: https://www.linkedin.com/pulse/whats-up-home-part-2-janne-pikkarainen/
@@ -34,5 +34,6 @@ So far my blog series has 27 parts, out of which the first three are outright bo
 25. Don't forget to monitor your backups: https://www.linkedin.com/pulse/whats-up-home-part-25-janne-pikkarainen/
 26. Create fairy tales with Zabbix: https://www.linkedin.com/pulse/whats-up-home-part-26-janne-pikkarainen/
 27. Setup a Zabbix HA cluster at home: https://www.linkedin.com/pulse/whats-up-home-part-27-janne-pikkarainen/
+28. Monitor FlightGear flight simulator: https://www.linkedin.com/pulse/whats-up-home-part-28-janne-pikkarainen
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
