@@ -1,0 +1,167 @@
+zabbix_export:
+  version: '6.2'
+  date: '2022-11-21T10:27:10Z'
+  template_groups:
+    -
+      uuid: 04c72b753c4043b59900a32c9c0b7c2e
+      name: Templates/Games
+  templates:
+    -
+      uuid: e5c9bc04e3754394b1cf81f73682124d
+      template: FlightGear
+      name: FlightGear
+      groups:
+        -
+          name: Templates/Games
+      items:
+        -
+          uuid: 84f0ffa8cf00457d846d93dcb8687154
+          name: 'Aircraft location master item'
+          type: HTTP_AGENT
+          key: aircraft.location.master
+          trends: '0'
+          value_type: TEXT
+          timeout: 30s
+          url: 'http:/YOURHOST:YOURPORT/json/position'
+          query_fields:
+            -
+              name: I
+              value: 'y'
+          tags:
+            -
+              tag: Application
+              value: FlightGear
+            -
+              tag: Component
+              value: 'Aircraft Position'
+        -
+          uuid: 8eb7793b46d24a06b49f4ca2a4c905c7
+          name: 'Aircraft velocities master item'
+          type: HTTP_AGENT
+          key: aircraft.velocities.master
+          trends: '0'
+          value_type: TEXT
+          timeout: 30s
+          url: 'http:/YOURHOST:YOURPORT/json/velocities'
+          query_fields:
+            -
+              name: I
+              value: 'y'
+          tags:
+            -
+              tag: Application
+              value: FlightGear
+            -
+              tag: Component
+              value: 'Aircraft Velocity'
+        -
+          uuid: 234cf275da3d496ba8806c8b402f87da
+          name: 'Aircraft altitude agl'
+          type: DEPENDENT
+          key: flightgear.aircraft.altitude.agl
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.children.[3].value'
+          master_item:
+            key: aircraft.location.master
+          tags:
+            -
+              tag: Application
+              value: FlightGear
+            -
+              tag: Component
+              value: 'Aircraft altitude agl'
+        -
+          uuid: a5e08710a8db46a5adf477cb2e4bae29
+          name: 'Aircraft altitude feet'
+          type: DEPENDENT
+          key: flightgear.aircraft.altitude.feet
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.children.[2].value'
+          master_item:
+            key: aircraft.location.master
+          tags:
+            -
+              tag: Application
+              value: FlightGear
+            -
+              tag: Component
+              value: 'Aircraft altitude feet'
+        -
+          uuid: ccc86483f7d84403b15934d51fd6eb4b
+          name: 'Aircraft ground speed'
+          type: DEPENDENT
+          key: flightgear.aircraft.groundspeed
+          delay: '0'
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.children.[6].value'
+          master_item:
+            key: aircraft.velocities.master
+          tags:
+            -
+              tag: Application
+              value: FlightGear
+            -
+              tag: Component
+              value: 'Aircraft ground speed'
+        -
+          uuid: f03dbc6e43ea40eaa074890c5307d8b5
+          name: 'Aircraft latitude'
+          type: DEPENDENT
+          key: flightgear.aircraft.latitude
+          delay: '0'
+          value_type: FLOAT
+          inventory_link: LOCATION_LAT
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.children.[1].value'
+          master_item:
+            key: aircraft.location.master
+          tags:
+            -
+              tag: Application
+              value: FlightGear
+            -
+              tag: Component
+              value: 'Aircraft latitude'
+        -
+          uuid: 29806232bc964816b0c0c807593ef588
+          name: 'Aircraft longitude'
+          type: DEPENDENT
+          key: flightgear.aircraft.longitude
+          delay: '0'
+          value_type: FLOAT
+          inventory_link: LOCATION_LON
+          preprocessing:
+            -
+              type: JSONPATH
+              parameters:
+                - '$.children.[0].value'
+          master_item:
+            key: aircraft.location.master
+          tags:
+            -
+              tag: Application
+              value: FlightGear
+            -
+              tag: Component
+              value: 'Aircraft longitude'
+      tags:
+        -
+          tag: Application
+          value: FlightGear
