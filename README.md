@@ -36,5 +36,6 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 27. Setup a Zabbix HA cluster at home: https://www.linkedin.com/pulse/whats-up-home-part-27-janne-pikkarainen/
 28. Monitor FlightGear flight simulator: https://www.linkedin.com/pulse/whats-up-home-part-28-janne-pikkarainen
 29. Detect a crying baby: https://www.linkedin.com/pulse/whats-up-home-part-29-janne-pikkarainen/
+30. Monitor Northern Lights: https://www.linkedin.com/pulse/whats-up-home-part-30-janne-pikkarainen/
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
