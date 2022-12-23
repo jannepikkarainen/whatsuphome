@@ -12,11 +12,12 @@
 - Data being fetched from OpenAQ using Zabbix HTTP agent item type
 
 # Baby girl
-- Stroller cabin temperature
+- Stroller cabin temperature (monitored with a RuuviTag)
 - Cry detection (by iPhone/Apple Watch, events sent to Zabbix using Shortcuts automation and a text file)
 
 # Backups
 - Monitor BackupPC backups so my home Zabbix won't get lost
+- Monitor Apple Time Machine backups age so my other stuff won't get lost
 
 # "Banana"
 - Check for color
@@ -102,6 +103,7 @@
 
 # Roomba iRobot vacuum cleaner (dumb model with no IoT functionality)
 - Monitor how long its moving
+- Monitored using RuuviTag
 
 # Smoke/Fire alarm
 - Reachability
