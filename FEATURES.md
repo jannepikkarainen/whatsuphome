@@ -7,6 +7,9 @@
 - Target temperature
 - Ambient temperature
 
+# Air quality (outdoors)
+- Data being fetched from OpenAQ using Zabbix HTTP agent item type
+
 # Baby girl
 - Stroller cabin temperature
 - Cry detection (by iPhone/Apple Watch, events sent to Zabbix using Shortcuts automation and a text file)
@@ -17,17 +20,23 @@
 # "Banana"
 - Check for color
 
-# CCTV Camera
+# CCTV camera
 - Reachability
 - Power status
 - Stream condition
 - Firmware
+
+# Countdown timer
+- Was "Is it Zabbix Summit 2022 yet?", but of course possible to countdown to any date
 
 # Door sensors
 - Reachability 
 - Battery status
 - Last open/close event
 - Used for my facial cream monitoring, too
+
+# Elasticsearch
+- What, who wouldn't have Elasticsearch at home? Monitored by standard Zabbix Elasticsearch template
 
 # Electricity
 - Current average price per kWh (Nordpool)
@@ -46,7 +55,7 @@
 - NetFlow (coming soon, maybe)
 
 # Jenkins
-- What, who wouldn't have Jenkins at home? :D Monitored using the standard Zabbix Jenkins template
+- What, who wouldn't have Jenkins at home? Monitored using the standard Zabbix Jenkins template
 
 # Laptop webcam
 - In use or not?
@@ -70,6 +79,9 @@
 - Motion detected events
 - Light level (lux) if supported by sensor
 
+# MySQL 
+- Zabbix server MySQL, monitored by standard Zabbix MySQL template
+
 # Northern lights
 - Current probability of seeing them
 
@@ -79,6 +91,10 @@
 # Power sockets
 - Reachability
 - Power status
+
+# Raspberry Pi 4
+- Runs my Zabbix
+- Monitored by Zabbix Agent2
 
 # Roomba iRobot vacuum cleaner (dumb model with no IoT functionality)
 - Monitor how long its moving
