@@ -148,3 +148,6 @@
 # Fairy tale alert template
 - What's a better way to put your baby to sleep than read her a different kind of fairy tale?
 
+# Zabbix HA cluster
+- There's a risk of rolling blackouts in Finland this winter, so my laptop acts as a standby Zabbix server, ready to kick in if the power fails and my Raspberry Pi 4 goes down. Implemented using the standard Zabbix HA feature.
+
