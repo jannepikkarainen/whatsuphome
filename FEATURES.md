@@ -27,6 +27,7 @@
 - Reachability 
 - Battery status
 - Last open/close event
+- Used for my facial cream monitoring, too
 
 # Electricity
 - Current average price per kWh (Nordpool)
@@ -40,6 +41,13 @@
 # Headset
 - Power status
 
+# Home router
+- All the usual router stuff over SNMP
+- NetFlow (coming soon, maybe)
+
+# Jenkins
+- What, who wouldn't have Jenkins at home? :D Monitored using the standard Zabbix Jenkins template
+
 # Laptop webcam
 - In use or not?
 
@@ -50,6 +58,9 @@
 - Saturation
 - Reachability
 - Firmware version
+
+# Logs
+- Central syslogs received by Zabbix
 
 # Lunch menu
 - Notify when a new menu is published
@@ -68,6 +79,9 @@
 # Power sockets
 - Reachability
 - Power status
+
+# Roomba iRobot vacuum cleaner (dumb model with no IoT functionality)
+- Monitor how long its moving
 
 # Smoke/Fire alarm
 - Reachability
@@ -89,4 +103,7 @@
 
 # TV
 - Power status (estimated by its IMCP ping)
+
+# Weather
+- Monitored by built-in Zabbix OpenWeather template
 
