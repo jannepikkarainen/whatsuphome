@@ -6,6 +6,7 @@
 - Mode
 - Target temperature
 - Ambient temperature
+- Can also be controlled from custom Zabbix context menu
 
 # Air quality (outdoors)
 - Data being fetched from OpenAQ using Zabbix HTTP agent item type
@@ -25,6 +26,9 @@
 - Power status
 - Stream condition
 - Firmware
+
+# Cozify
+- Monitor that my custom scripts are properly being run
 
 # Countdown timer
 - Was "Is it Zabbix Summit 2022 yet?", but of course possible to countdown to any date
@@ -122,4 +126,23 @@
 
 # Weather
 - Monitored by built-in Zabbix OpenWeather template
+
+---
+
+# Other features
+
+# Blender 3D software integration
+- Custom Python scripts call Blender API and change alerting objects in scene to be red
+
+# Star Wars xscreensaver module integration
+- Send Zabbix alerts over Real-time export functionality to another laptop, which then parses the JSON to text, the text then used by the xscreensaver module
+
+# IoT remote integration
+- Send events to Zabbix using a remote
+
+# Take screenshot of websites
+- Selenium scripts can take screenshots of website when they alert, or anytime from a Zabbix context menu
+
+# Fairy tale alert template
+- What's a better way to put your baby to sleep than read her a different kind of fairy tale?
 
