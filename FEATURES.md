@@ -8,6 +8,9 @@
 - Ambient temperature
 - Can also be controlled from custom Zabbix context menu
 
+# Air humidifier
+- Power status
+
 # Air quality (outdoors)
 - Data being fetched from OpenAQ using Zabbix HTTP agent item type
 
