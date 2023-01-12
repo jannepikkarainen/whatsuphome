@@ -108,6 +108,9 @@
 - Monitor how long its moving
 - Monitored using RuuviTag
 
+# RSS
+- Follows the RSS feed of whatsuphome.fi just to make sure it's OK
+
 # Smoke/Fire alarm
 - Reachability
 - Battery level
