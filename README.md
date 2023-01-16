@@ -39,5 +39,6 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 30. Monitor Northern Lights: https://whatsuphome.fi/whatsuphome/part30/
 31. Welcome to my new home: https://whatsuphome.fi/whatsuphome/part30/
 32. Follow the news: https://whatsuphome.fi/whatsuphome/part30/
+33. My nine months experience with Raspberry Pi 4 and Zabbix: https://whatsuphome.fi/whatsuphome/part33
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
