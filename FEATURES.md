@@ -135,6 +135,11 @@
 # Weather
 - Monitored by built-in Zabbix OpenWeather template
 
+# whatsuphome.fi
+
+- Monitored through standard Zabbix web scenario
+- Access log monitored in real-time via my custom template
+
 ---
 
 # Other features
