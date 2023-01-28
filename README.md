@@ -41,5 +41,6 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 32. Follow the news: https://whatsuphome.fi/whatsuphome/part30/
 33. My nine months experience with Raspberry Pi 4 and Zabbix: https://whatsuphome.fi/whatsuphome/part33
 34. Monitor your website visitor rate: https://whatsuphome.fi/whatsuphome/part34
+35. Can you debug baby's nocturnal waking?: https://whatsuphome.fi/whatsuphome/part35
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
