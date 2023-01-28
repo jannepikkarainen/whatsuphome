@@ -17,6 +17,7 @@
 # Baby girl
 - Stroller cabin temperature (monitored with a RuuviTag)
 - Cry detection (by iPhone/Apple Watch, events sent to Zabbix using Shortcuts automation and a text file)
+- Bedtime guesstimate based on bedroom Philips Hue light strip night light mode status
 
 # Backups
 - Monitor BackupPC backups so my home Zabbix won't get lost
