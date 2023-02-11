@@ -44,5 +44,6 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 35. Can you debug baby's nocturnal waking?: https://whatsuphome.fi/whatsuphome/part35 -- 
 35a. Answer to part 35: https://whatsuphome.fi/whatsuphome/part35a
 36. How I'm doing NetFlow at home: https://whatsuphome.fi/whatsuphome/part36
+37. Welcome, Zabbix 6.4.0rc1! But possibly with a trivial bug...: https://whatsuphome.fi/whatsuphome/part37
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
