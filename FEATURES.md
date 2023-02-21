@@ -91,6 +91,9 @@
 # MySQL 
 - Zabbix server MySQL, monitored by standard Zabbix MySQL template
 
+# NetFlow
+- Implemented with softflowd, ELK stack, ElastiFlow and Grafana Elasticsearch plugin; work to get my own NetFlow implementation working on Zabbix is underway
+
 # Northern lights
 - Current probability of seeing them
 
