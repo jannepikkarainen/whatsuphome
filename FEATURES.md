@@ -26,6 +26,9 @@
 # "Banana"
 - Check for color
 
+# Car
+- Geolocation sent to Zabbix whenever I start the car
+
 # CCTV camera
 - Reachability
 - Power status
