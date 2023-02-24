@@ -46,5 +46,7 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 36. How I'm doing NetFlow at home: https://whatsuphome.fi/whatsuphome/part36
 37. Welcome, Zabbix 6.4.0rc1! But possibly with a trivial bug...: https://whatsuphome.fi/whatsuphome/part37. -- fixed in 6.4.0rc2 https://whatsuphome.fi/news/20230222-negative-values-working
 38. Yes I have NetFlow at home, but what is it good for?: https://whatsuphome.fi/whatsuphome/part38
+39. Let's hit the road!: https://whatsuphome.fi/whatsuphome/part39
+
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
