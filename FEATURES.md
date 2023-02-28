@@ -41,6 +41,9 @@
 # Countdown timer
 - Was "Is it Zabbix Summit 2022 yet?", but of course possible to countdown to any date
 
+# Docker
+- Home Assistant, HashiCorp Vault, Ansible Semaphore, some other Docker instances running on my Raspberry Pi or laptop are being monitored for their status through standard Zabbix Docker template
+
 # Door sensors
 - Reachability 
 - Battery status
