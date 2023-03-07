@@ -48,6 +48,7 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 38. Yes I have NetFlow at home, but what is it good for?: https://whatsuphome.fi/whatsuphome/part38
 39. Let's hit the road!: https://whatsuphome.fi/whatsuphome/part39
 40. Is it raining?: https://whatsuphome.fi/whatsuphome/part40
+41. Measuring CO2 with a device that would not want to integrate with Zabbix: https://whatsuphome.fi/whatuphome/part41
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
