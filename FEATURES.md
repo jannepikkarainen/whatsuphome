@@ -35,6 +35,9 @@
 - Stream condition
 - Firmware
 
+# CO2 levels
+- Netatmo IoT device & HomeKit & some Siri Shortcuts feeding data to Zabbix
+
 # Cozify
 - Monitor that my custom scripts are properly being run
 
