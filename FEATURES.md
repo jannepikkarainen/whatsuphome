@@ -14,6 +14,10 @@
 # Air quality (outdoors)
 - Data being fetched from OpenAQ using Zabbix HTTP agent item type
 
+# Apple products
+- Apple Watch and iPhone monitored through Home Assistant's HomeKit Controller integration, data brought to Zabbix over Home Assistant API
+- Monitored data includes for example steps, average pace, distance, altitude, GPS accuracy, vertical accuracy, mobile connection type (cellular/wifi), current activity, location and so much more.
+
 # Baby girl
 - Stroller cabin temperature (monitored with a RuuviTag)
 - Cry detection (by iPhone/Apple Watch, events sent to Zabbix using Shortcuts automation and a text file)
