@@ -96,6 +96,9 @@
 # Lunch menu
 - Notify when a new menu is published
 
+# Mobile data usage
+- Based on my OpenVPN connection back to home network whenever I am not at home
+
 # Motion sensors
 - Battery level
 - Motion detected events
