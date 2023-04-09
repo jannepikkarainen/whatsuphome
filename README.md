@@ -50,6 +50,7 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 40. Is it raining?: https://whatsuphome.fi/whatsuphome/part40
 41. Measuring CO2 with a device that would not want to integrate with Zabbix: https://whatsuphome.fi/whatuphome/part41
 42. Monitor iPhone and Apple Watch with Zabbix: https://whatsuphome.fi/whatsuphome/part42
+43. Monitor your mobile data usage: https://whatsuphome.fi/whatsuphome/part43
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
