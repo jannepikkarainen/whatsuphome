@@ -76,9 +76,10 @@
 - All the usual router stuff over SNMP
 - NetFlow (coming soon, maybe)
 
-# HP LaserJet MFP M28a
+# HP LaserJet Pro MFP M28a
 - An USB-connected laser printer
 - Monitored using ipptool 
+- Returns back printer states, uptime, remaining toner level, firmware version, some other details
 
 # Jenkins
 - What, who wouldn't have Jenkins at home? Monitored using the standard Zabbix Jenkins template
