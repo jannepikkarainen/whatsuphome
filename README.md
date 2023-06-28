@@ -54,6 +54,7 @@ So far my blog series has 29 parts, out of which the first three are outright bo
 44. Can ChatGPT help setting up monitoring an USB-connected printer?: https://whatsuphome.fi/whatsuphome/part44
 45. Zabbix the radio station: https://whatsuphome.fi/whatsuphome/part45
 46. Seven things to beware if you monitor your home: https://whatsuphome.fi/whatsuphome/part46
+47 Does your phone battery drain faster in summer time?: https://whatsuphome.fi/whatsuphome/part47
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
