@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 47 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I also kept a speech about this project at Zabbix Summit 2022, watch it here: https://www.youtube.com/watch?v=3KiyhXil8UI
+So far my blog series has 48 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I also kept a speech about this project at Zabbix Summit 2022, watch it here: https://www.youtube.com/watch?v=3KiyhXil8UI
 
 1. Introduction: https://whatsuphome.fi/whatsuphome/part1/
 2. Adding Grafana to the mix: https://whatsuphome.fi/whatsuphome/part2/
@@ -55,6 +55,7 @@ So far my blog series has 47 parts, out of which the first three are outright bo
 45. Zabbix the radio station: https://whatsuphome.fi/whatsuphome/part45
 46. Seven things to beware if you monitor your home: https://whatsuphome.fi/whatsuphome/part46
 47. Does your phone battery drain faster in summer time?: https://whatsuphome.fi/whatsuphome/part47
+48. How to secure your home monitoring: https://whatsuphome.fi/whatsuphome/part48
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
