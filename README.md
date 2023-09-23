@@ -57,6 +57,8 @@ So far my blog series has 48 parts, out of which the first three are outright bo
 47. Does your phone battery drain faster in summer time?: https://whatsuphome.fi/whatsuphome/part47
 48. How to secure your home monitoring: https://whatsuphome.fi/whatsuphome/part48
 49. Community Service Day to help small businesses: https://whatsuphome.fi/whatsuphome/part49
+50. Monitoring tripped fuses: https://whatsuphome.fi/whatsuphome/part50
+51. Monitor your ad-blocker: https://whatsuphome.fi/whatsuphome/part51
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
