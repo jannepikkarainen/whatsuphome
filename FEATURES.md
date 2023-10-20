@@ -1,5 +1,13 @@
 # Currently monitored 
 
+# AdGuard Home
+- Is the ad-blocker enabled?
+- Number of DNS queries
+- Number of DNS queries blocked
+- Number of times parental filter did hit
+- Number of times safe search was enforced
+- Average processing time
+
 # Air conditioner (MQTT)
 - Power status
 - Fan speed
