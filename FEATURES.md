@@ -129,6 +129,9 @@
 # Philips OneBlade shaver
 - Estimated runtime left based on audio frequency
 
+# Product prices
+- Some product prices from a specific Finnish company, requested by my wife
+
 # Power sockets
 - Reachability
 - Power status
@@ -191,6 +194,9 @@
 
 # Fairy tale alert template
 - What's a better way to put your baby to sleep than read her a different kind of fairy tale?
+
+# Zabbix 7.0 custom widgets
+- For now, copied the one we did do during Zabbix Summit 2023 custom widget workshop, allowing to filter alerts by clicking on a custom navigator panel.
 
 # Zabbix HA cluster
 - There's a risk of rolling blackouts in Finland this winter, so my laptop acts as a standby Zabbix server, ready to kick in if the power fails and my Raspberry Pi 4 goes down. Implemented using the standard Zabbix HA feature.
