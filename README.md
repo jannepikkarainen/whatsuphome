@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 48 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I also kept a speech about this project at Zabbix Summit 2022, watch it here: https://www.youtube.com/watch?v=3KiyhXil8UI
+So far my blog series has 59 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I also kept a speech about this project at Zabbix Summit 2022, watch it here: https://www.youtube.com/watch?v=3KiyhXil8UI
 
 1. Introduction: https://whatsuphome.fi/whatsuphome/part1/
 2. Adding Grafana to the mix: https://whatsuphome.fi/whatsuphome/part2/
@@ -59,6 +59,14 @@ So far my blog series has 48 parts, out of which the first three are outright bo
 49. Community Service Day to help small businesses: https://whatsuphome.fi/whatsuphome/part49
 50. Monitoring tripped fuses: https://whatsuphome.fi/whatsuphome/part50
 51. Monitor your ad-blocker: https://whatsuphome.fi/whatsuphome/part51
+52. Thank you for the Summit!: https://whatsuphome.fi/whatsuphome/part52
+53. Sorry, NixOS took my attention: https://whatsuphome.fi/whatsuphome/part53
+54. Upgrading MacBook Pro Retina mid-2012 to macOS Sonoma was a terrible idea: https://whatsuphome.fi/whatsuphome/part54
+55. How badly a limping memory card affects Raspberry Pi 4 performance?: https://whatsuphome.fi/whatsuphome/part55
+56. Track product prices with Zabbix: https://whatsuphome.fi/whatsuphome/part56
+57. Control your lights with Zabbix: https://whatsuphome.fi/whatsuphome/part57
+58. Time to start to use Zabbix 7.0 (at home): https://whatsuphome.fi/whatsuphome/part58
+59. I created my first Zabbix 7.0 custom widget: https://whatsuphome.fi/whatsuphome/part59
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
