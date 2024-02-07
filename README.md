@@ -67,6 +67,7 @@ So far my blog series has 59 parts, out of which the first three are outright bo
 57. Control your lights with Zabbix: https://whatsuphome.fi/whatsuphome/part57
 58. Time to start to use Zabbix 7.0 (at home): https://whatsuphome.fi/whatsuphome/part58
 59. I created my first Zabbix 7.0 custom widget: https://whatsuphome.fi/whatsuphome/part59
+60. OS upgrade made my Raspberry Pi 4 literally cooler: https://whatsuphome.fi/whatsuphome/part60
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
