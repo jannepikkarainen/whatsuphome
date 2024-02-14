@@ -180,6 +180,9 @@
 
 # Other features
 
+# Generative AI
+- Integrated with local GPT4All LLM. Zabbix is able to comment about the alerts in any way I like.
+
 # Blender 3D software integration
 - Custom Python scripts call Blender API and change alerting objects in scene to be red
 
