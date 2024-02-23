@@ -77,6 +77,9 @@
 - Altitude
 - Speed
 
+# HashiCorp Vault
+- As my Zabbix is using HashiCorp Vault for credentials, I'm also using the Zabbix built-in HashiCorp Vault template for monitoring it
+
 # Headset
 - Power status
 
