@@ -72,6 +72,7 @@ So far my blog series has 64 parts, out of which the first three are outright bo
 62. Zabbix the alert AI journalist: https://whatsuphome.fi/whatsuphome/part62
 63. Zabbix the AI artist: https://whatsuphome.fi/whatsuphome/part63
 64. I, for one, welcome our new AI blogger overlords: https://whatsuphome.fi/whatsuphome/part63
+65. GPT4All is compatible with Zabbix 7.0 ChatGPT widget: https://whatsuphome.fi/node/90
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
