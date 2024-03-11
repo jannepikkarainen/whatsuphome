@@ -73,6 +73,8 @@ So far my blog series has 64 parts, out of which the first three are outright bo
 63. Zabbix the AI artist: https://whatsuphome.fi/whatsuphome/part63
 64. I, for one, welcome our new AI blogger overlords: https://whatsuphome.fi/whatsuphome/part63
 65. GPT4All is compatible with Zabbix 7.0 ChatGPT widget: https://whatsuphome.fi/node/90
+66. Add AI generates summaries to Zabbix or Grafana dashboards: https://whatsuphome.fi/whatsuphome/part66
+67. Track airport departures with Grafana's Infinity data source: https://whatsuphome.fi/whatsuphome/part67
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
