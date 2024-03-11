@@ -19,6 +19,9 @@
 # Air humidifier
 - Power status
 
+# Airport departures/arrivals
+- Track Helsinki airport departures/arrivals through Grafana's Infinity data source
+
 # Air quality (outdoors)
 - Data being fetched from OpenAQ using Zabbix HTTP agent item type
 
