@@ -75,6 +75,7 @@ So far my blog series has 64 parts, out of which the first three are outright bo
 65. GPT4All is compatible with Zabbix 7.0 ChatGPT widget: https://whatsuphome.fi/node/90
 66. Add AI generates summaries to Zabbix or Grafana dashboards: https://whatsuphome.fi/whatsuphome/part66
 67. Track airport departures with Grafana's Infinity data source: https://whatsuphome.fi/whatsuphome/part67
+68. Global availability monitoring via a single home router: https://whatsuphome.fi/whatsuphome/part68
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
