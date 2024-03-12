@@ -181,6 +181,7 @@
 
 - Monitored through standard Zabbix web scenario
 - Access log monitored in real-time via my custom template
+- Global availability monitored through Asuswrt-Merlin, Proton VPN and Zabbix web.page.perf
 
 ---
 
