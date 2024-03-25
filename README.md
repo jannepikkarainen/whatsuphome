@@ -78,6 +78,8 @@ So far my blog series has 70 parts, out of which the first three are outright bo
 68. Global availability monitoring via a single home router: https://whatsuphome.fi/whatsuphome/part68
 69. Traceroute monitoring in my global Zabbix availability checks: https://whatsuphome.fi/whatsuphome/part69
 70. What's your name, again? Time for DNS monitoring!: https://whatsuphome.fi/whatsuphome/part70
+71. Zabbix 7.0beta1 --> beta2 update was painless: https://whatsuphome.fi/whatsuphome/part71
+72. Few dashboard panel ideas: https://whatsuphome.fi/whatsuphome/part72
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
