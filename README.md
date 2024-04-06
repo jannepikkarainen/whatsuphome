@@ -80,6 +80,8 @@ So far my blog series has 72 parts, out of which the first three are outright bo
 70. What's your name, again? Time for DNS monitoring!: https://whatsuphome.fi/whatsuphome/part70
 71. Zabbix 7.0beta1 --> beta2 update was painless: https://whatsuphome.fi/whatsuphome/part71
 72. Few dashboard panel ideas: https://whatsuphome.fi/whatsuphome/part72
+73. Use ProxySQL to help your database: https://whatsuphome.fi/whatsuphome/part73
+74. Back to basics - weird home monitoring: https://whatsuphome.fi/whatsuphome/part74
 
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
