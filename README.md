@@ -82,6 +82,6 @@ So far my blog series has 72 parts, out of which the first three are outright bo
 72. Few dashboard panel ideas: https://whatsuphome.fi/whatsuphome/part72
 73. Use ProxySQL to help your database: https://whatsuphome.fi/whatsuphome/part73
 74. Back to basics - weird home monitoring: https://whatsuphome.fi/whatsuphome/part74
-
+75. How do you know if you have backups?: https://whatsuphome.fi/whatsuphome/part75
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
