@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 72 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I also kept a speech about this project at Zabbix Summit 2022, watch it here: https://www.youtube.com/watch?v=3KiyhXil8UI
+So far my blog series has 78 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I also kept a speech about this project at Zabbix Summit 2022, watch it here: https://www.youtube.com/watch?v=3KiyhXil8UI
 
 1. Introduction: https://whatsuphome.fi/whatsuphome/part1/
 2. Adding Grafana to the mix: https://whatsuphome.fi/whatsuphome/part2/
@@ -84,5 +84,7 @@ So far my blog series has 72 parts, out of which the first three are outright bo
 74. Back to basics - weird home monitoring: https://whatsuphome.fi/whatsuphome/part74
 75. How do you know if you have backups?: https://whatsuphome.fi/whatsuphome/part75
 76. I installed a Zabbix proxy for What's up, home: https://whatsuphome.fi/whatsuphome/part76
+77. Welcome, Zabbix 7.0beta3: https://whatsuphome.fi/whatsuphome/part77
+78. Bullying to poor new honeycomb widget: https://whatsuphome.fi/whatsuphome/part78
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
