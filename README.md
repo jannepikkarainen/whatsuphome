@@ -85,6 +85,6 @@ So far my blog series has 78 parts, out of which the first three are outright bo
 75. How do you know if you have backups?: https://whatsuphome.fi/whatsuphome/part75
 76. I installed a Zabbix proxy for What's up, home: https://whatsuphome.fi/whatsuphome/part76
 77. Welcome, Zabbix 7.0beta3: https://whatsuphome.fi/whatsuphome/part77
-78. Bullying to poor new honeycomb widget: https://whatsuphome.fi/whatsuphome/part78
+78. Bullying the poor new honeycomb widget: https://whatsuphome.fi/whatsuphome/part78
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
