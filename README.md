@@ -4,9 +4,9 @@ I monitor my home wtth Zabbix & Grafana and do some weird experiments with them.
 
 So far my blog series has 78 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
 
-Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
-Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
-Zabbix Summit 2023: What's up, me?: https://youtu.be/k-SIJgBT9oE?si=7wAQs5pRS2f_h8F_
+- Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
+- Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
+- Zabbix Summit 2023: What's up, me?: https://youtu.be/k-SIJgBT9oE?si=7wAQs5pRS2f_h8F_
 
 1. Introduction: https://whatsuphome.fi/whatsuphome/part1/
 2. Adding Grafana to the mix: https://whatsuphome.fi/whatsuphome/part2/
