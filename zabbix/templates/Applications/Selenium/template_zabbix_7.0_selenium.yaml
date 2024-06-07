@@ -1,0 +1,66 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
+      name: Templates/Applications
+  templates:
+    - uuid: 4814c1705a2f4b4cb8abebd223e4ce66
+      template: Selenium
+      name: Selenium
+      groups:
+        - name: Templates/Applications
+      items:
+        - uuid: 53503e381e294f498a7c001cf44f72ac
+          name: 'Selenium status master data'
+          type: HTTP_AGENT
+          key: selenium.masterdata
+          trends: '0'
+          value_type: TEXT
+          url: '{$SELENIUM_URL}'
+        - uuid: 4b9be89db9d94cbe903d7472e004c3be
+          name: 'Selenium message'
+          type: DEPENDENT
+          key: selenium.message
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.value.message
+          master_item:
+            key: selenium.masterdata
+        - uuid: 73d42ea710e24174bdba252e43060d68
+          name: 'Selenium node availability'
+          type: DEPENDENT
+          key: selenium.node.availability
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - '$.value.nodes.*.availability.first()'
+          master_item:
+            key: selenium.masterdata
+        - uuid: d39b224f2e814f3b97dffa1ad35a967c
+          name: 'Selenium ready'
+          type: DEPENDENT
+          key: selenium.ready
+          delay: '0'
+          trends: '0'
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.value.ready
+            - type: BOOL_TO_DECIMAL
+              parameters:
+                - ''
+          master_item:
+            key: selenium.masterdata
+      tags:
+        - tag: Application
+          value: Selenium
+      macros:
+        - macro: '{$SELENIUM_URL}'
+          value: 'http://your.selenium.server.address:4444/status'
