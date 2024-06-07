@@ -153,6 +153,11 @@
 # RSS
 - Follows the RSS feed of whatsuphome.fi just to make sure it's OK
 
+# Selenium
+- Server status
+- Server messages
+- Node status
+
 # Smoke/Fire alarm
 - Reachability
 - Battery level
