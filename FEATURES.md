@@ -115,6 +115,9 @@
 # Lunch menu
 - Notify when a new menu is published
 
+# Maritime traffic
+- Monitor any sea vessel for its heading, speed, latitude and longitude
+
 # Mobile data usage
 - Based on my OpenVPN connection back to home network whenever I am not at home
 
