@@ -94,5 +94,6 @@ So far my blog series has 82 parts, out of which the first three are outright bo
 80. Monitor your new Selenium: https://whatsuphome.fi/whatsuphome/part80
 81. Thanks, initMAX! Now texting new custom widgets: https://whatsuphome.fi/whatsuphome/part81
 82. Tracking a cruise ship: https://whatsuphome.fi/whatsuphome/part82
+83. Just a second: https://whatsuphome.fi/whatsuphome/part83
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
