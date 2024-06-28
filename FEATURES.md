@@ -80,6 +80,10 @@
 - Altitude
 - Speed
 
+# HAProxy
+- Who wouldn't need HAProxy in front of their Selenium instances at home?
+- Monitored using Zabbix built-in HAProxy template
+
 # HashiCorp Vault
 - As my Zabbix is using HashiCorp Vault for credentials, I'm also using the Zabbix built-in HashiCorp Vault template for monitoring it
 
