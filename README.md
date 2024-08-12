@@ -97,5 +97,6 @@ So far my blog series has 82 parts, out of which the first three are outright bo
 83. Just a second: https://whatsuphome.fi/whatsuphome/part83
 84. Increase the availability of your Selenium with HAProxy: https://whatsuphome.fi/whatsuphome/part84
 85. InitMAX gaugeMAX Pro widget: https://whatsuphome.fi/whatsuphome/part85
+86. Thanks to Zabbix, a possible warning about a dying HDD: https://whatsuphome.fi/whatsuphome/part86
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
