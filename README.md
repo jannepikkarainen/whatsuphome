@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 89 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
+So far my blog series has 90 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
 
 - Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
 - Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
@@ -101,5 +101,6 @@ So far my blog series has 89 parts, out of which the first three are outright bo
 87. initMAX itemMAX widget test: https://whatsuphome.fi/whatsuphome/part87
 88. Preparing my laptop for Zabbix Summit 2024: https://whatsuphome.fi/whatsuphome/part88
 89. ... but can you monitor Qubes OS with Zabbix?: https://whatsuphome.fi/whatsuphome/part89
+90. Thanks to monZphere, Zabbix 7.0 maintenance calendar just got an overhaul: https://whatsuphome.fi/whatsuphome/part90
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
