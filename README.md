@@ -105,5 +105,6 @@ So far my blog series has 93 parts, out of which the first three are outright bo
 91. monZphere Zabbix 7.0 Kanban view for issues: https://whatsuphome.fi/whatsuphome/part91
 92. Hey monZphere AI assistant, create a host: https://whatsuphome.fi/whatsuphome/part92
 93. Using Zabbix API history.push, let's send currently playing song to Zabbix: https://whatsuphome.fi/whatsuphome/part93
+94. Using Zabbix-cli v3.x for Zabbix administration: https://whatsuphome.fi/whatsuphome/part94
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
