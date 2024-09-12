@@ -199,6 +199,10 @@
 - DNS performance monitoring
 - DNS results monitoring
 
+# Zabbix Security Advisories
+
+- Tracked through Zabbix bug tracker security advisories using Jira API, HTTP Agent item type and auto-discovery
+
 ---
 
 # Other features
