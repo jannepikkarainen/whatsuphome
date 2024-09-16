@@ -184,6 +184,13 @@
 - Reachability
 - Battery level
 
+# Typing speed
+- Through typespeed command line game high score file
+- Characters per second with and without enter/space keys
+- Total keypress count during the game
+- Duration of the game
+- Typo ratio
+
 # TV
 - Power status (estimated by its IMCP ping)
 
