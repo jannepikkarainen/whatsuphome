@@ -1,0 +1,199 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
+      name: Templates/Applications
+  templates:
+    - uuid: a22dfbe535124f9db6db033e4f302524
+      template: Typespeed
+      name: Typespeed
+      description: 'Tracks your typing speed in Zabbix by parsing typespeed command line game high score file.'
+      groups:
+        - name: Templates/Applications
+      items:
+        - uuid: 5e5b7725656042f38ae31169a44429f0
+          name: 'typespeed master item'
+          type: ZABBIX_ACTIVE
+          key: 'log[{$HIGHSCOREFILEPATH}]'
+          value_type: LOG
+          trends: '0'
+          preprocessing:
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+        - uuid: 797ce873f897467395333104a1a07c65
+          name: 'typespeed characters per second'
+          type: CALCULATED
+          key: typespeed.cps
+          units: cps
+          params: '(last(//typespeed.score)+last(//typespeed.enteroffset))/ last(//typespeed.duration)*100'
+          preprocessing:
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+        - uuid: af5b61a268a9483b9a27cf4ed3e0f764
+          name: 'typespeed duration'
+          type: DEPENDENT
+          key: typespeed.duration
+          delay: '0'
+          trends: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^[0-9]+\s+[0-9]+\s+[0-9]+\s+\w+\s+[\w\.]+\s+\w+\s+([0-9]+)\s+'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+        - uuid: 04bc20a5a4154935b312cb7352895092
+          name: 'typespeed duration (in seconds)'
+          type: CALCULATED
+          key: typespeed.duration.seconds
+          units: s
+          params: last(//typespeed.duration)/100
+        - uuid: e740d225c6c84f4ebf3fba32a8b3ef62
+          name: 'typespeed enter offset'
+          type: DEPENDENT
+          key: typespeed.enteroffset
+          delay: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^[0-9]+\s+[0-9]+\s+([0-9]+)\s+'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+        - uuid: 7cbb473ba1e244848dbef095c704cb8e
+          name: 'typespeed player name'
+          type: DEPENDENT
+          key: typespeed.playername
+          delay: '0'
+          value_type: TEXT
+          trends: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^[0-9]+\s+[0-9]+\s+[0-9]+\s+(\w+)\s+'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+          triggers:
+            - uuid: a8fe16d1913e4f0eb3ba249d3be873b0
+              expression: change(/Typespeed/typespeed.playername)=1
+              name: 'Keyboard name changed'
+              priority: INFO
+        - uuid: 68d7adecbe9c4dadac472d148c1165e2
+          name: 'typespeed rule set'
+          type: DEPENDENT
+          key: typespeed.ruleset
+          delay: '0'
+          value_type: TEXT
+          trends: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^[0-9]+\s+[0-9]+\s+[0-9]+\s+\w+\s+[\w\.]+\s+(\w+)\s+'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+        - uuid: 8b5d0548c9d84ac8a086e6161df3d148
+          name: 'typespeed score'
+          type: DEPENDENT
+          key: typespeed.score
+          delay: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^([0-9]+)\s+'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+        - uuid: 5d789a455e794615a0a8ebb61f56c59b
+          name: 'typespeed sinit'
+          type: DEPENDENT
+          key: typespeed.sinit
+          delay: '0'
+          trends: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^[0-9]+\s+[0-9]+\s+[0-9]+\s+\w+\s+[\w\.]+\s+\w+\s+[0-9]+\s+([0-9]+)'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+        - uuid: 4a4b004136d749409d0727a0bfa53da2
+          name: 'typespeed characters per second (with spaces & enter)'
+          type: CALCULATED
+          key: typespeed.tcps
+          units: cps
+          params: '(last(//typespeed.totalcount)+last(//typespeed.enteroffset))/ last(//typespeed.duration)*100'
+          preprocessing:
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+        - uuid: 403ebe521731496b9dcdc32bbd9e3955
+          name: 'typespeed total count'
+          type: DEPENDENT
+          key: typespeed.totalcount
+          delay: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^[0-9]+\s+([0-9]+)\s+'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+        - uuid: fac877c0798f4b10965dee5ac51bb78b
+          name: 'typespeed typo ratio'
+          type: CALCULATED
+          key: typespeed.typoratio
+          value_type: FLOAT
+          units: '%'
+          params: '(1-(last(//typespeed.score)+last(//typespeed.enteroffset))/ (last(//typespeed.totalcount)+last(//typespeed.enteroffset))) *100'
+          preprocessing:
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+        - uuid: 1717596e1687478cab0cef655631bc5f
+          name: 'typespeed word list'
+          type: DEPENDENT
+          key: typespeed.wordlist
+          delay: '0'
+          value_type: TEXT
+          trends: '0'
+          preprocessing:
+            - type: REGEX
+              parameters:
+                - '^[0-9]+\s+[0-9]+\s+[0-9]+\s+\w+\s+([\w\.]+)\s+'
+                - \1
+            - type: DISCARD_UNCHANGED
+              parameters:
+                - ''
+          master_item:
+            key: 'log[{$HIGHSCOREFILEPATH}]'
+      tags:
+        - tag: Application
+          value: typespeed
+      macros:
+        - macro: '{$HIGHSCOREFILEPATH}'
+          value: /var/games/typespeed/typespeed.score
