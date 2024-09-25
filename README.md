@@ -109,5 +109,6 @@ So far my blog series has 97 parts, out of which the first three are outright bo
 95. Monitor Zabbix Security Advisories 100% with Zabbix: https://whatsuphome.fi/whatsuphome/part95
 96. Track your typing speed with Zabbix: https://whatsuphome.fi/whatsuphome/part96
 97. Monitor your GitHub repos with Zabbix: https://whatsuphome.fi/whatsuphome/part97
+98. Describe the Zabbix dashboards and status for visually impaired: https://whatsuphome.fi/whatsuphome/part98
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
