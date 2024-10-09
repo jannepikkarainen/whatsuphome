@@ -146,6 +146,9 @@
 # Product prices
 - Some product prices from a specific Finnish company, requested by my wife
 
+# Proxmox VE
+- Monitoring my Proxmox VE environment with the native Proxmox template provided by Zabbix
+
 # Power sockets
 - Reachability
 - Power status
