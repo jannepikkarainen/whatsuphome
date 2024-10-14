@@ -233,6 +233,9 @@
 # Take screenshot of websites
 - Selenium scripts can take screenshots of website when they alert, or anytime from a Zabbix context menu
 
+# Play rock-paper-scissors
+- Using Zabbix 7.0 new Browser item type, play rock-paper-scissors against a PHP script at whatsuphome.fi
+
 # Fairy tale alert template
 - What's a better way to put your baby to sleep than read her a different kind of fairy tale?
 
