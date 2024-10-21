@@ -140,6 +140,10 @@
 # Northern lights
 - Current probability of seeing them
 
+# OPNSense
+- Monitored with the official OPNSense SNMP template by Zabbix
+- Also monitored via Zabbix agent, as OPNSense plugins do offer that. Agent gives back a bit different kind of data than the SNMP template, so using both is beneficial
+
 # Philips OneBlade shaver
 - Estimated runtime left based on audio frequency
 
