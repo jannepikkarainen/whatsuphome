@@ -237,6 +237,9 @@
 # Take screenshot of websites
 - Selenium scripts can take screenshots of website when they alert, or anytime from a Zabbix context menu
 
+# Netbox integration
+- Zabbix can populate bits and pieces of its inventory based on data that is in Netbox
+
 # Play rock-paper-scissors
 - Using Zabbix 7.0 new Browser item type, play rock-paper-scissors against a PHP script at whatsuphome.fi
 
