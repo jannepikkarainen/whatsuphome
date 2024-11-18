@@ -116,5 +116,6 @@ So far my blog series has 103 parts, out of which the first three are outright b
 101. Zabbix plays rock-paper-scissors: https://whatsuphome.fi/whatsuphome/part101
 102. New era for What's up, home? infra: https://whatsuphome.fi/whatsuphome/part102
 103. Netbox as home CMDB and integrated with Zabbix: https://whatsuphome.fi/whatsuphome/part103
+104. Track your PEF results with Zabbix: https://whatsuphome.fi/whatsuphome/part104
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
