@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 103 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
+So far my blog series has 105 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
 
 - Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
 - Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
@@ -117,5 +117,6 @@ So far my blog series has 103 parts, out of which the first three are outright b
 102. New era for What's up, home? infra: https://whatsuphome.fi/whatsuphome/part102
 103. Netbox as home CMDB and integrated with Zabbix: https://whatsuphome.fi/whatsuphome/part103
 104. Track your PEF results with Zabbix: https://whatsuphome.fi/whatsuphome/part104
+105. Zabbix 7.2 is almost out with 7.2.0rc2: https://whatsuphome.fi/whatsuphome/part105
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
