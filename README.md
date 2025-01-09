@@ -119,5 +119,6 @@ So far my blog series has 106 parts, out of which the first three are outright b
 104. Track your PEF results with Zabbix: https://whatsuphome.fi/whatsuphome/part104
 105. Zabbix 7.2 is almost out with 7.2.0rc2: https://whatsuphome.fi/whatsuphome/part105
 106. Monitor your body temperature with Zabbix: https://whatsuphome.fi/whatsuphome/part106
+107. Give your Zabbix a computer vision and monitor bananas: https://whatsuphome.fi/whatsuphome/part107
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
