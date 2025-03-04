@@ -29,6 +29,7 @@
 - Apple Watch and iPhone monitored through Home Assistant's HomeKit Controller integration, data brought to Zabbix over Home Assistant API
 - Monitored data includes for example steps, average pace, distance, altitude, GPS accuracy, vertical accuracy, mobile connection type (cellular/wifi), current activity, location and so much more.
 - Send info about the currently playing music (on Apple Music) to Zabbix
+- Monitor Apple M-series CPU/GPU/ANE
 
 # Baby girl
 - Stroller cabin temperature (monitored with a RuuviTag)
