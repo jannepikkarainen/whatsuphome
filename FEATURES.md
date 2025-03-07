@@ -95,6 +95,7 @@
 # Home router
 - All the usual router stuff over SNMP
 - NetFlow (coming soon, maybe)
+- Monitor Wi-Fi signal strength of the connected devices
 
 # HP LaserJet Pro MFP M28a
 - An USB-connected laser printer
