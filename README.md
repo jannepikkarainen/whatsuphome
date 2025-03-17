@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 114 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
+So far my blog series has 115 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
 
 - Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
 - Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
@@ -127,5 +127,6 @@ So far my blog series has 114 parts, out of which the first three are outright b
 112. Monitor your Apple Silicon with Zabbix: https://whatsuphome.fi/whatsuphome/part112
 113. Monitor your Wi-Fi devices signal strength with Zabbix: https://whatsuphome.fi/whatsuphome/part113
 114. Return to monZphere: https://whatsuphome.fi/whatsuphome/part114
+115. monZphere continuation: Get your local browser-based AI guru: https://whatsuphome.fi/whatsuphome/part115
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
