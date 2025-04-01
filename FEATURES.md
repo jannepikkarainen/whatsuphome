@@ -119,6 +119,9 @@
 # Logs
 - Central syslogs received by Zabbix
 
+# Lottery
+- Come up with lotto numbers by using Zabbix Script item type
+
 # Lunch menu
 - Notify when a new menu is published
 
