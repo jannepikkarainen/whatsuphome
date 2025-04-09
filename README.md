@@ -131,5 +131,6 @@ So far my blog series has 118 parts, out of which the first three are outright b
 116. Check your Raspberry Pi EEPROM version status with Zabbix: https://whatsuphome.fi/whatsuphome/part116
 117. Let Zabbix be your lucky lady for lottery numbers: https://whatsuphome.fi/whatsuphome/part117
 118. Puppy got a smart collar and Zabbix port has started: https://whatsuphome.fi/whatsuphome/part118
+119. Draw your Zabbix templates: https://whatsuphome.fi/whatsuphome/part119
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
