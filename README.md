@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 123 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
+So far my blog series has 124 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
 
 - Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
 - Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
@@ -136,5 +136,6 @@ So far my blog series has 123 parts, out of which the first three are outright b
 121. AIEE something munches my home router CPU, Zabbix to the rescue!: https://whatsuphome.fi/whatsuphome/part121
 122. Zabbix 7.4.0rc1 is out, of course I upgraded to it: https://whatsuphome.fi/whatsuphome/part122
 123. Use (iPhone) camera and Zabbix for distance measurement: https://whatsuphome.fi/whatsuphome/part123
+124. Make AI do your web tests just with natural language: https://whatsuphome.fi/whatsuphome/part124
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
