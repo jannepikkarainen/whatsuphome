@@ -138,5 +138,6 @@ So far my blog series has 125 parts, out of which the first three are outright b
 123. Use (iPhone) camera and Zabbix for distance measurement: https://whatsuphome.fi/whatsuphome/part123
 124. Make AI do your web tests just with natural language: https://whatsuphome.fi/whatsuphome/part124
 125. Alert if IoT hub miscalculates if we are home or not: https://whatsuphome.fi/whatsuphome/part125
+126. monZphere's Service Tree: https://whatsuphome.fi/whatsuphome/part126
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
