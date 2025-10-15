@@ -82,6 +82,9 @@
 - Altitude
 - Speed
 
+# FreeBSD wifi
+- Small template to enable monitoring the bits and pieces of wifi connection on FreeBSD: channel, RSSI, connection rate, AP MAC address
+
 # HAProxy
 - Who wouldn't need HAProxy in front of their Selenium instances at home?
 - Monitored using Zabbix built-in HAProxy template
