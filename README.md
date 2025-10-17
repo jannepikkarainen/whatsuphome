@@ -143,5 +143,6 @@ So far my blog series has 129 parts, out of which the first three are outright b
 128. Track AI hallucinations with Zabbix: https://whatsuphome.fi/whatsuphome/part128
 129. Monitor hotel wifi quality with Zabbix: https://whatsuphome.fi/whatsuphome/part129
 130. Results of Zabbix Summit 2025 wifi connection quality: https://whatsuphome.fi/whatsuphome/part130
+131. Monitoring fuel prices with Zabbix: https://whatsuphome.fi/whatsuphome/part131
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
