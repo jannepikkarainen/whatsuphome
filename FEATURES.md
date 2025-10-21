@@ -77,6 +77,9 @@
 - Current average price per kWh (Nordpool)
 - Finland's total power consumption (Fingrid)
 
+# E-mail notifications
+- Alert my wife to her GMail if her business e-mail IMAP server has new e-mail for her
+
 # FlightGear
 - Aircraft coordinates
 - Altitude
