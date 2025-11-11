@@ -2,12 +2,13 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 132 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
+So far my blog series has 135 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
 
 - Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
 - Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
 - Zabbix Summit 2023: What's up, me?: https://youtu.be/k-SIJgBT9oE?si=7wAQs5pRS2f_h8F_
 - Zabbix Summit 2024: What's up, home? goes Generative AI: https://youtu.be/Nse7axHA4BU?t=2200 
+- Zabbix Summit 2025: Monitoring my nearby areas with Zabbix: https://youtu.be/bf7XRahrDiE?t=29063
 
 1. Introduction: https://whatsuphome.fi/whatsuphome/part1/
 2. Adding Grafana to the mix: https://whatsuphome.fi/whatsuphome/part2/
@@ -145,5 +146,8 @@ So far my blog series has 132 parts, out of which the first three are outright b
 130. Results of Zabbix Summit 2025 wifi connection quality: https://whatsuphome.fi/whatsuphome/part130
 131. Monitoring fuel prices with Zabbix: https://whatsuphome.fi/whatsuphome/part131
 132. Use Zabbix for e-mail notifications: https://whatsuphome.fi/whatsuphome/part132
+133. Some proper train-ing material: https://whatsuphome.fi/whatsuphome/part133
+134. Use Zabbix to observe when kid wakes up: https://whatsuphome.fi/whatsuphome/part134
+135. Cannot see that light: https://whatsuphome.fi/whatsuphome/part135
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
