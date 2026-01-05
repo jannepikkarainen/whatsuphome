@@ -167,6 +167,10 @@
 # Proxmox VE
 - Monitoring my Proxmox VE environment with the native Proxmox template provided by Zabbix
 
+# Powerline adapters
+- TP-Link Powerline adapters upload/download rates between our house and garage
+- Regular ping tests
+
 # Power sockets
 - Reachability
 - Power status
