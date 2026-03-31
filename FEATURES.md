@@ -203,6 +203,10 @@
 - Play status (stopped/paused/playing)
 - Current song
 
+# Tailscale
+- Monitor online Tailscale hosts in my Tailnet
+- See data transferred per devices etc
+
 # Thermometers
 - Temperature
 - Humidity
