@@ -30,6 +30,7 @@
 - Monitored data includes for example steps, average pace, distance, altitude, GPS accuracy, vertical accuracy, mobile connection type (cellular/wifi), current activity, location and so much more.
 - Send info about the currently playing music (on Apple Music) to Zabbix
 - Monitor Apple M-series CPU/GPU/ANE
+- Use MacBook trackpad as a scale
 
 # Baby girl
 - Stroller cabin temperature (monitored with a RuuviTag)
