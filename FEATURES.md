@@ -45,7 +45,7 @@
 - Check for color
 
 # Car
-- Geolocation sent to Zabbix whenever I start the car
+- Toyota bz4x very extensively monitored: https://whatsuphome.fi/blog/part-143-how-i-monitor-my-toyota-bz4x-zabbix
 
 # CCTV camera
 - Reachability
