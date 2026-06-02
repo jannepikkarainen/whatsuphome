@@ -157,5 +157,6 @@ So far my blog series has 143 parts, out of which the first three are outright b
 141. Monitor SD cards for their failures: https://whatsuphome.fi/blog/part-141-monitor-sd-cards-their-failure
 142. How to use your MacBook Pro trackpad and Zabbix as a scale: https://whatsuphome.fi/blog/part-142-how-use-your-macbook-pro-trackpad-and-zabbix-scale
 143. How I monitor my Toyota bz4x with Zabbix: https://whatsuphome.fi/blog/part-143-how-i-monitor-my-toyota-bz4x-zabbix
+144. Zabbix 8.0.0beta1 user interface improvements: https://whatsuphome.fi/blog/part-144-zabbix-800beta1-user-interface-improvements
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
