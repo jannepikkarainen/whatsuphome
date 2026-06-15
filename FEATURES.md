@@ -56,6 +56,10 @@
 # CO2 levels
 - Netatmo IoT device & HomeKit & some Siri Shortcuts feeding data to Zabbix
 
+# Cowrie ssh honeypot
+- Parse Cowrie JSON logs with Zabbix agent and item preprocessing
+- Get attacker IP, username, password, commands run, login success status
+
 # Cozify
 - Monitor that my custom scripts are properly being run
 
