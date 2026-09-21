@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "id": "boarding_pass",
+    "type": "widget",
+    "name": "Boarding Pass Countdown",
+    "namespace": "BoardingPass",
+    "version": "1.0.0",
+    "description": "Turns any calculated countdown item into an airline boarding pass. Split-flap D/H/M/S clock, live SCHEDULED / BOARDING / DEPARTED status, ticket-stub styling. Built for the 'is it conference yet' item, works for any deadline.",
+    "author": "whatsuphome.fi",
+    "url": "",
+    "actions": {
+        "widget.boarding_pass.view": {
+            "class": "WidgetView",
+            "view": "widget.view"
+        }
+    },
+    "widget": {
+        "name": "Boarding Pass Countdown",
+        "js_class": "CWidgetBoardingPass",
+        "size": { "width": 26, "height": 8 },
+        "refresh_rate": 60
+    },
+    "assets": {
+        "js": ["class.widget.js"],
+        "css": ["widget.css"]
+    }
+}

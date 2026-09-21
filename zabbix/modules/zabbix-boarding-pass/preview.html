@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Boarding Pass Countdown — Preview</title>
+<style>* { margin: 0; padding: 0; box-sizing: border-box; } body { background: #050505; overflow: hidden; }</style>
+<link rel="stylesheet" href="assets/css/widget.css">
+</head>
+<body>
+<div style="width:100vw;height:100vh">
+  <div class="bp-container" id="bp" style="width:100%;height:100%"></div>
+</div>
+<script>class CWidget { constructor() { this._body = document.body; } processUpdateResponse() {} }</script>
+<script src="assets/js/class.widget.js"></script>
+<script>
+const payload = {
+    cfg: {
+        event_name: 'ZABBIX SUMMIT 2026',
+        flight_no: 'ZBX 2026',
+        origin_code: 'HEL',
+        origin_city: 'Helsinki',
+        dest_code: 'RIX',
+        dest_city: 'Riga',
+        gate: 'A26',
+        seat: '1A',
+        passenger_name: '',
+        boarding_hours: 2,
+    },
+    // 16 days, 9h, 42m, 7s out — matches "Zabbix Summit 2026 begins in" on 2026-09-21
+    seconds_remaining: 16 * 86400 + 9 * 3600 + 42 * 60 + 7,
+    server_clock: Math.floor(Date.now() / 1000),
+    source_ok: true,
+};
+
+document.getElementById('bp').setAttribute('data-payload', btoa(JSON.stringify(payload)));
+const w = new CWidgetBoardingPass();
+w._body = document.body;
+w.onInitialize();
+w.processUpdateResponse({});
+</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+.bp-container, .bp-container *, .bp-container *::before, .bp-container *::after {
+    box-sizing: border-box;
+}
+
+/*
+ * Theme tokens. Zabbix marks its dark UI theme with a `.theme-dark` class
+ * on an ancestor of the widget (same convention as the other widgets in
+ * this repo — see csg_hw_fleet_kanban, hardwaretierscatter). Default
+ * (untagged = Zabbix's light "blue" theme) is the realistic printed-paper
+ * boarding pass; `.theme-dark` swaps in the airport-departure-screen look.
+ * Every rule below reads a token — never a literal color — so the two
+ * themes can't drift out of sync with each other.
+ */
+.bp-container {
+    --bp-backdrop: radial-gradient(120% 140% at 15% 0%, #eef0ec 0%, #e2e5df 55%, #d9dcd4 100%);
+    --bp-card-bg: #f8f4ea;
+    --bp-card-shadow: 0 14px 30px -10px rgba(60,50,25,0.22), 0 0 0 1px rgba(0,0,0,0.05) inset;
+    --bp-main-bg: #faf7ee;
+    --bp-main-highlight: rgba(255,255,255,0.55);
+    --bp-ink: #23262e;
+    --bp-muted: #7c7563;
+    --bp-line: rgba(30,25,10,0.18);
+    --bp-event-color: #8a5a12;
+    --bp-event-glow: none;
+    --bp-plane-glow: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+    --bp-flap-bg-1: #fffdf7;
+    --bp-flap-bg-2: #efe7d3;
+    --bp-flap-split: rgba(20,15,0,0.20);
+    --bp-flap-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 2px 4px rgba(0,0,0,0.16);
+    --bp-colon-dot: rgba(30,25,10,0.35);
+    --bp-stub-bg: #f1ead7;
+    --bp-status-scheduled-bg: rgba(20,110,170,0.09);
+    --bp-status-scheduled-text: #0e5a8a;
+    --bp-status-scheduled-border: rgba(20,110,170,0.30);
+    --bp-status-boarding-bg: rgba(180,120,10,0.12);
+    --bp-status-boarding-text: #8a5a00;
+    --bp-status-boarding-border: rgba(180,120,10,0.38);
+    --bp-status-boarding-glow: rgba(180,120,10,0.30);
+    --bp-status-departed-bg: rgba(30,140,80,0.10);
+    --bp-status-departed-text: #136b3d;
+    --bp-status-departed-border: rgba(30,140,80,0.30);
+
+    width: 100%; height: 100%; position: relative; overflow: hidden;
+    background: var(--bp-backdrop);
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    padding: 10px;
+    container-type: inline-size;
+}
+
+.theme-dark .bp-container {
+    --bp-backdrop: radial-gradient(120% 140% at 15% 0%, #171c28 0%, #0a0d13 60%, #07090d 100%);
+    --bp-card-bg: #10131c;
+    --bp-card-shadow: 0 18px 40px -12px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.04) inset;
+    --bp-main-bg: #12151f;
+    --bp-main-highlight: rgba(255,255,255,0.02);
+    --bp-ink: #f2f4f8;
+    --bp-muted: #7b8494;
+    --bp-line: #34394a;
+    --bp-event-color: #ffcc55;
+    --bp-event-glow: 0 0 16px rgba(255,204,85,0.18);
+    --bp-plane-glow: drop-shadow(0 0 6px rgba(255,204,85,0.35));
+    --bp-flap-bg-1: #232838;
+    --bp-flap-bg-2: #181c28;
+    --bp-flap-split: rgba(0,0,0,0.55);
+    --bp-flap-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 2px 4px rgba(0,0,0,0.4);
+    --bp-colon-dot: #4a5268;
+    --bp-stub-bg: #14101a;
+    --bp-status-scheduled-bg: rgba(85,204,238,0.10);
+    --bp-status-scheduled-text: #7fd8ff;
+    --bp-status-scheduled-border: rgba(85,204,238,0.25);
+    --bp-status-boarding-bg: rgba(255,204,85,0.12);
+    --bp-status-boarding-text: #ffcc55;
+    --bp-status-boarding-border: rgba(255,204,85,0.35);
+    --bp-status-boarding-glow: rgba(255,204,85,0.35);
+    --bp-status-departed-bg: rgba(51,255,136,0.10);
+    --bp-status-departed-text: #33ff88;
+    --bp-status-departed-border: rgba(51,255,136,0.28);
+}
+
+/* ── Ticket card ──────────────────────────────────────────── */
+.bp-ticket {
+    position: relative;
+    width: 100%; height: auto; max-height: 100%;
+    max-width: 760px;
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bp-card-bg);
+    box-shadow: var(--bp-card-shadow);
+}
+
+/* Airline livery stripe across the top. The 4th stripe leg is transparent
+   (not a hardcoded color) so it always blends into whichever --bp-card-bg
+   is showing through underneath, in either theme. */
+.bp-livery {
+    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background: repeating-linear-gradient(
+        -35deg,
+        #d40000 0 22px,
+        #ececec 22px 26px,
+        #d40000 26px 48px,
+        transparent 48px 54px
+    );
+    opacity: 0.9;
+    z-index: 2;
+}
+
+/* ── Main section ─────────────────────────────────────────── */
+.bp-main {
+    flex: 1;
+    min-width: 0;
+    padding: 18px 20px 14px;
+    display: flex; flex-direction: column; gap: 10px;
+    background:
+        linear-gradient(180deg, var(--bp-main-highlight), transparent 30%),
+        var(--bp-main-bg);
+    position: relative;
+}
+
+.bp-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    flex-wrap: wrap; row-gap: 2px;
+}
+.bp-airline { display: flex; align-items: center; gap: 8px; }
+.bp-airline-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #d40000; color: #fff; font-weight: 800; font-size: 13px;
+    box-shadow: 0 0 0 2px rgba(212,0,0,0.25);
+    flex-shrink: 0;
+}
+.bp-airline-name {
+    font-weight: 800; font-size: 15px; letter-spacing: 2.5px; color: var(--bp-ink);
+}
+.bp-class {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--bp-muted);
+    text-transform: uppercase;
+}
+
+.bp-event {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--bp-event-color);
+    text-transform: uppercase;
+    text-shadow: var(--bp-event-glow);
+}
+
+/* ── Route line ───────────────────────────────────────────── */
+.bp-route {
+    display: flex; align-items: center; gap: 10px;
+    padding: 2px 0 4px;
+}
+.bp-route-point { min-width: 0; }
+.bp-route-point-end { text-align: right; }
+.bp-route-code {
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 26px; font-weight: 800; color: var(--bp-ink); line-height: 1;
+    letter-spacing: 1px;
+}
+.bp-route-city {
+    font-size: 10px; color: var(--bp-muted); margin-top: 2px; letter-spacing: 0.5px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.bp-route-path {
+    flex: 1; position: relative; height: 20px;
+    display: flex; align-items: center; min-width: 40px;
+}
+.bp-route-line {
+    width: 100%; height: 0; border-top: 2px dashed var(--bp-line);
+}
+.bp-route-plane {
+    position: absolute; top: 50%; left: 0;
+    transform: translate(-50%, -60%);
+    font-size: 15px;
+    filter: var(--bp-plane-glow);
+    animation: bp-fly 7s linear infinite;
+}
+@keyframes bp-fly {
+    0%   { left: 2%;  opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { left: 98%; opacity: 0; }
+}
+
+/* ── Split-flap countdown clock ───────────────────────────── */
+.bp-clock {
+    display: flex; align-items: flex-end; gap: 6px;
+    margin: 4px 0 2px;
+}
+.bp-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.bp-unit-label {
+    font-size: 8px; font-weight: 700; letter-spacing: 2px; color: var(--bp-muted);
+}
+.bp-flap-group { display: flex; gap: 2px; }
+.bp-flap {
+    display: flex; align-items: center; justify-content: center;
+    width: 22px; height: 30px;
+    background: linear-gradient(180deg, var(--bp-flap-bg-1) 0%, var(--bp-flap-bg-2) 100%);
+    border-radius: 3px;
+    position: relative;
+    box-shadow: var(--bp-flap-shadow);
+    perspective: 120px;
+    overflow: hidden;
+}
+.bp-flap::after {
+    content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+    background: var(--bp-flap-split);
+}
+.bp-flap-char {
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 19px; font-weight: 800; color: var(--bp-ink); line-height: 1;
+}
+.bp-flap.flipping .bp-flap-char { animation: bp-flap-spin 0.28s ease-in-out; }
+@keyframes bp-flap-spin {
+    0%   { transform: rotateX(0deg);    opacity: 1; }
+    45%  { transform: rotateX(-92deg);  opacity: 0.35; }
+    55%  { transform: rotateX(-92deg);  opacity: 0.35; }
+    100% { transform: rotateX(0deg);    opacity: 1; }
+}
+.bp-colon {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    height: 30px; padding-bottom: 12px;
+}
+.bp-colon span {
+    width: 4px; height: 4px; border-radius: 50%; background: var(--bp-colon-dot);
+}
+
+/* ── Status pill ──────────────────────────────────────────── */
+.bp-status {
+    align-self: flex-start;
+    font-size: 10px; font-weight: 800; letter-spacing: 2px;
+    padding: 4px 10px; border-radius: 20px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+.bp-status-scheduled {
+    color: var(--bp-status-scheduled-text);
+    background: var(--bp-status-scheduled-bg);
+    border-color: var(--bp-status-scheduled-border);
+}
+.bp-status-boarding {
+    color: var(--bp-status-boarding-text);
+    background: var(--bp-status-boarding-bg);
+    border-color: var(--bp-status-boarding-border);
+    animation: bp-pulse 1.4s ease-in-out infinite;
+}
+.bp-status-departed {
+    color: var(--bp-status-departed-text);
+    background: var(--bp-status-departed-bg);
+    border-color: var(--bp-status-departed-border);
+}
+@keyframes bp-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 var(--bp-status-boarding-glow); }
+    50%      { box-shadow: 0 0 0 6px rgba(0,0,0,0); }
+}
+.bp-ticket-boarding .bp-livery { animation: bp-livery-alert 1.4s linear infinite; }
+@keyframes bp-livery-alert { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.4); } }
+
+/* ── Perforation between main + stub ──────────────────────── */
+.bp-perforation {
+    width: 0; flex-shrink: 0; position: relative;
+    border-left: 2px dashed var(--bp-line);
+    display: flex; flex-direction: column; justify-content: space-evenly;
+    align-items: center;
+}
+.bp-perforation::before, .bp-perforation::after {
+    content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--bp-backdrop);
+}
+.bp-perforation::before { top: -9px; }
+.bp-perforation::after  { bottom: -9px; }
+.bp-hole { display: none; }
+
+/* ── Ticket stub ──────────────────────────────────────────── */
+.bp-stub {
+    width: 122px; flex-shrink: 0;
+    padding: 18px 14px 14px;
+    display: flex; flex-direction: column; gap: 9px;
+    background: var(--bp-stub-bg);
+    font-family: 'Courier New', Consolas, monospace;
+}
+.bp-stub-row { display: flex; flex-direction: column; gap: 1px; }
+.bp-stub-label {
+    font-size: 8px; font-weight: 700; letter-spacing: 1.5px; color: var(--bp-muted);
+}
+.bp-stub-val {
+    font-size: 13px; font-weight: 700; color: var(--bp-ink); letter-spacing: 0.5px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.bp-stub-val[data-role="passenger"] {
+    font-size: 11px; white-space: normal; line-height: 1.25; word-break: break-word;
+}
+
+/* Real barcodes are dark bars on a light strip, full stop — that doesn't
+   flip with the theme, so unlike everything else above this is intentionally
+   NOT tokenized. (The old dark-mode version inverted this and looked like a
+   barcode negative, which was never actually realistic either.) */
+.bp-barcode {
+    margin-top: auto;
+    height: 34px; border-radius: 2px;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #14110c 0 1px, transparent 1px 2px,
+            #14110c 2px 3px, transparent 3px 4px,
+            #14110c 4px 6px, transparent 6px 7px,
+            #14110c 7px 8px, transparent 8px 10px
+        ),
+        #f2efe6;
+}
+
+/* ── Small-widget responsiveness ─────────────────────────── */
+@container (max-width: 520px) {
+    .bp-stub { display: none; }
+    .bp-perforation { display: none; }
+}
