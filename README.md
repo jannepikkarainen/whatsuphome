@@ -160,5 +160,6 @@ So far my blog series has 146 parts, out of which the first three are outright b
 144. Zabbix 8.0.0beta1 user interface improvements: https://whatsuphome.fi/blog/part-144-zabbix-800beta1-user-interface-improvements
 145. Catchier visualizations for Zabbix SLA: https://whatsuphome.fi/blog/part-145-catchier-visualization-zabbix-sla
 146. Monitor Cowrie ssh honeypot with Zabbix: https://whatsuphome.fi/blog/part-146-monitor-cowrie-ssh-honeypot-zabbix
+147. Countdown timer as a boarding pass: https://whatsuphome.fi/blog/zabbix-summit-countdown-timer-boarding-pass-whats-home-part-147
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 

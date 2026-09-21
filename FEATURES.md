@@ -58,6 +58,7 @@
 
 # Cowrie ssh honeypot
 - Parse Cowrie JSON logs with Zabbix agent and item preprocessing
+- 
 - Get attacker IP, username, password, commands run, login success status
 
 # Cozify
