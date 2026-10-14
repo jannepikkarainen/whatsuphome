@@ -2,7 +2,7 @@
 
 I monitor my home wtth Zabbix & Grafana and do some weird experiments with them. As these templates are just for fun at home and proof-of-concepts more than actual production quality, use these with care.
 
-So far my blog series has 147 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
+So far my blog series has 151 parts, out of which the first three are outright boring, and after that things got more interesting. Much more interesting, even. I have also kept multiple speeches about this project at Zabbix Summit events.
 
 - Zabbix Summit 2022: What's up, home?: https://www.youtube.com/watch?v=3KiyhXil8UI
 - Zabbix Summit 2023: What's up, home?: https://youtu.be/1Da5y4nbTgo?si=MWNWW6jR7ik2ujgJ
@@ -161,5 +161,9 @@ So far my blog series has 147 parts, out of which the first three are outright b
 145. Catchier visualizations for Zabbix SLA: https://whatsuphome.fi/blog/part-145-catchier-visualization-zabbix-sla
 146. Monitor Cowrie ssh honeypot with Zabbix: https://whatsuphome.fi/blog/part-146-monitor-cowrie-ssh-honeypot-zabbix
 147. Countdown timer as a boarding pass: https://whatsuphome.fi/blog/zabbix-summit-countdown-timer-boarding-pass-whats-home-part-147
+148. Bring Zabbix to your console with zabterm: https://whatsuphome.fi/blog/bring-zabbix-your-console-zabterm-whats-home-part-148
+149. Zabbix 8.0.0rc1 is out - watch out for a simple minefield: https://whatsuphome.fi/blog/zabbix-800rc1-out-watch-out-simple-minefield-whats-home-part-149
+150. Zabbix Summit keynote tracing, gradients on Zabbix: https://whatsuphome.fi/blog/zabbix-summit-keynote-tracing-gradients-zabbix-whats-home-part-150
+151. Doom inside Zabbix: https://whatsuphome.fi/blog/doom-inside-zabbix-whats-home-part-151
 
 If you like my project, you can support me at https://www.buymeacoffee.com/jannepikkah 
