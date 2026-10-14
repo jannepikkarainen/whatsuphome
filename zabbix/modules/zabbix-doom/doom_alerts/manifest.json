@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "id": "doom_alerts",
+    "name": "DOOM: Alert Slayer",
+    "namespace": "DoomAlerts",
+    "version": "1.0",
+    "author": "Janne Pikkarainen / Forcepoint / What's up, home?",
+    "url": "",
+    "description": "Doom-like FPS widget. Active Zabbix alerts spawn as demons — shoot them to acknowledge! Also boots the actual id Software DOOM engine (compiled to WebAssembly) — real monsters are linked to alerts, so shooting one for real acknowledges it.",
+    "type": "widget",
+    "assets": {
+        "js": ["widget.js"]
+    },
+    "actions": {
+        "widget.doom_alerts.view": {
+            "class": "WidgetView"
+        },
+        "widget.doom_alerts.edit": {
+            "class": "WidgetEdit"
+        }
+    }
+}

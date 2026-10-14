@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+*.o
+build_widget/
+engine-src/doom1.wad
+engine-src/doomwidget.*
+__pycache__/
