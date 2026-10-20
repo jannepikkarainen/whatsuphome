@@ -9,6 +9,7 @@ So far my blog series has 151 parts, out of which the first three are outright b
 - Zabbix Summit 2023: What's up, me?: https://youtu.be/k-SIJgBT9oE?si=7wAQs5pRS2f_h8F_
 - Zabbix Summit 2024: What's up, home? goes Generative AI: https://youtu.be/Nse7axHA4BU?t=2200 
 - Zabbix Summit 2025: Monitoring my nearby areas with Zabbix: https://youtu.be/bf7XRahrDiE?t=29063
+- Zabbix Summit 2026: Widgets Gone Wild: https://www.youtube.com/watch?v=YS7Ifqtne7s
 
 1. Introduction: https://whatsuphome.fi/whatsuphome/part1/
 2. Adding Grafana to the mix: https://whatsuphome.fi/whatsuphome/part2/
